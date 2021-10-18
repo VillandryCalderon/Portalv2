@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <section class="site-section" id="next-section">
+        <div class="container">
+
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <center><h1 class="lead">Aplicar al puesto </h1></center>
+                    <form action="" method="POST" class="" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="form-group">
+                            <label><strong>Nombre Completo</strong></label>                                            
+                            <input type="text" class="form-control" placeholder="Usuario"  {{form.name}} >                     
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Email</strong></label>
+                            <input type="email" class="form-control" placeholder="Contraseña" {{form.email}}
+                        </div>
+
+                        <div class="form-group">
+                            <label><strong>Archivo adjunto</strong></label>
+                            <input type="file" class="form-control" placeholder="Contraseña" {{form.file}}
+                        </div>
+                     
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <input type="submit" onclick="myFunction()" value="Submit"
+                                       class="btn btn-primary btn-md text-white">
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <script>
+                        function myFunction() {
+                            alert("Are you applying to this job?,capturar el id del job {{job.id}} ");
+                        }
+                    </script>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}

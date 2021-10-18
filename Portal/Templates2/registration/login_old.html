@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        <div class="container-form">
+
+            <form id="form-login" method="post" action="">
+                {% csrf_token %}
+                <div>
+                    {{form.username}}
+                </div>
+                <div>
+                    {{form.password}}                    
+                </div>
+                <button type="submit">Entrar</button>
+                <div class="clearfix"></div>
+
+
+            </form>
+
+        </div>
+
+    </body>
+</html>

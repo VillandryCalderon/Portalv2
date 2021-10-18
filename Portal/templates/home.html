@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+  <!-- Home -->
+<section class="home py-5 d-flex align-items-center" id="header">
+    <div class="container text-light py-5"  data-aos="fade-right"> 
+        <h1 class="headline"style="color:rgba(22, 68, 186, 0.9);" >En <span class="home_text">Istmo Center</span><br> Tenemos trabajo para vos!</h1>
+        <p class="para para-light py-3">Encuentre el trabajo de sus sueños en nuestro poderoso sitio web de ofertas laborales</p>
+        <div class="d-flex align-items-center">
+            <p class="p-2"><i class="fas fa-laptop-house fa-lg"></i></p>
+            <p>Lorem ipsum dolor sit amet.</p>  
+        </div>
+        <div class="d-flex align-items-center">
+            <p class="p-2"><i class="fas fa-wifi fa-lg"></i></p>
+            <p>Lorem ipsum dolor sit amet.</p>  
+        </div>
+        <form id="job-main-form" method="get" action="{% url 'jobs:search' %}" class="search-jobs-form">
+          <div class="row mb-5">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+               <input type="text"  id="title" name="title" class="form-control form-control-lg" placeholder=" Software Engineer ... ">
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+               <input    type="text" id="job_location" name="job_location" class="form-control form-control-lg" placeholder="San José, Costa Rica ... ">
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+              <select id="employment_status" name="employment_status" class="form-control">
+                <option>Part Time</option>
+                <option>Full Time</option>
+                <option>Freelance</option>
+              </select>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+              <button type="submit" class="btn btn-primary btn-lg btn-block text-white btn-search"><span class="icon-search icon mr-2"></span>Buscar trabajo</button>
+            </div>
+          </div>
+        </form>
+
+
+        <div class="my-3">
+            
+    
+
+        </div>
+
+
+
+    </div> <!-- end of container -->
+</section> <!-- end of home -->
+
+
+
+ <!-- InformacionQR -->
+<section class="about d-flex align-items-center text-light py-5" id="about">
+  <div class="container" >
+      <div class="row d-flex align-items-center">
+          <div class="col-lg-7" data-aos="fade-right">
+              
+              <h1 style="color:#e9790e;">Escanea el codigo QR<br>Y encontra tu trabajo ideal</h1>
+              <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>
+              <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum voluptatum quisquam ad veritatis dolorem.</p>
+
+              <div class="my-3">
+                  <a class="btn" href="#your-link">Resgistrate</a>
+              </div>
+          </div>
+          <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down"> 
+              <img class="img-fluid" src="{% static 'core/assets/images/DinoQR.jpg' %}" alt="about" >
+          </div>
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+</section> <!-- end of about -->
+ <!-- Contadores -->
+<section class="py-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-7 text-center">
+            <h2 class="section-title mb-2 text-white">Estadisticas de carrera</h2>
+            <p class="lead text-white"></p>
+          </div>
+        </div>
+        <div class="row pb-0 block__19738 section-counter">
+
+          <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <strong class="number" data-number="{{ candidates }}">0</strong>
+            </div>
+            <span class="caption">Candidatos</span>
+          </div>
+
+          <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <strong class="number" data-number="{{ job_qs }}"> 0 </strong>
+            </div>
+            <span class="caption"> Ofertas laborales</span>
+          </div>
+
+          <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-center mb-2">
+              <strong class="number" data-number="">0</strong>
+            </div>
+            <span class="caption">Ofertas de empleo llenas</span>
+          </div>
+
+
+
+        </div>
+      </div>
+</section>
+
+
+<section class="services d-flex align-items-center py-5" id="services" style="padding-top: 25%;">
+  <div class="container text-light">
+      <div class="text-center pb-4" >
+          <p>Ofertas laborales destacadas</p> 
+          <h2 class="py-2">Explora las diferentes oportunidades que tenes de trabajar con  nosotros</h2>
+          <p class="para-light"> cartelera de ofertas laborales de Istmo Center</p>
+      </div>
+      <div class="row gy-4 py-2" data-aos="zoom-in">
+        {% for q in query %} 
+          <div class="col-lg-4 py-2">
+              <div class="card bg-transparent">
+                  <i class="fas fa-home fa-2x"></i>
+                  <h2><a href="{% url 'jobs:job-single' q.id %}">{{ q.title }}</a> </h2>
+                  <span class="badge badge-primary px-2 py-1 mb-3">{{ q.employment_status }}</span>                    
+                    <p class="meta">Publisher: <strong>{{ q.user.first_name }} {{ q.user.last_name }}</strong> In: <strong>{{ q.category }}</strong></p>
+                  
+                  <div class="col-md-12 text-left">
+                    <p>Localización: <strong>{{ q.job_location }}</strong></p>
+                    <span class="meta"></span>
+                  </div>
+                  <div class="col-md-12 text-md-right">
+                    <p>salario:<strong class="text-black">{{ q.Salary }}</strong></p>
+                  </div>
+                              
+              
+              </div>
+          </div> 
+
+          {% endfor %}
+
+
+
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+
+  <div class="row pagination-wrap">
+
+    <div class="col-md-6 text-center text-md-left">
+      <div class="custom-pagination ml-auto">
+        {% if query.has_previous %}
+        <a  href="?page={{ query.previous_page_number }}" class="prev">Previous</a>
+        {% endif %}
+        <div class="d-inline-block">
+          Page <a href="#" class="active">{{ query.number }}</a> of  {{ query.paginator.num_pages }}
+
+
+        </div>
+        {% if query.has_next %}
+        <a href="?page={{ query.next_page_number }}" class="next">Next</a>
+         {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+</section> <!-- end of services -->
+
+
+
+
+
+      
+
+
+
+    <section class="bg-light pt-5 testimony-full">
+
+        <div class="owl-carousel single-carousel">
+
+
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mx-auto">
+                <img class="img-fluid mx-auto" src="{% static 'images/person_1.jpg' %}" alt="Image">
+                <blockquote>
+                  <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                  <p><cite> &mdash; Richard Anderson</cite></p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mx-auto">
+                <img class="img-fluid mx-auto" src="{% static 'images/person_2.jpg' %}" alt="Image">
+                <blockquote>
+                  <p>&ldquo;Soluta quasi cum delectus eum facilis recusandae nesciunt molestias accusantium libero dolores repellat id in dolorem laborum ad modi qui at quas dolorum voluptatem voluptatum repudiandae.&rdquo;</p>
+                  <p><cite> &mdash; Chris Peters</cite></p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+    </section>
+
+
+
+
+{% endblock %}
