@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="mb-5 text-center">
-                        <h1 class="text-white font-weight-bold">Job Listings</h1>
+                        <h1 class="text-white font-weight-bold">Ofertas Laborales</h1>
                         <p>Find your dream jobs in our powerful career website.</p>
                     </div>
                 </div>
@@ -31,17 +31,17 @@
 
             <div class="row mb-5 justify-content-center">
                 <div class="col-md-7 text-center">
-                    <h2 class="section-title mb-2">{{ job_qs }} Job Listed</h2>
+                    <h2 class="section-title mb-2">{{ job_qs }} Ofertas Vigentes</h2>
 
                     <div class="mb-5 text-center">
 
                         <a href="{% url 'jobs:job-post' %}"
-                           class="btn btn-primary border-width-2 d-none d-lg-inline-block">
+                           class="btn btn-primary btn-md text-black">
                       <span class="mr-2 icon-paper-plane">
 
-                      </span>Post a Job</a>
+                      </span style="color: black;">Crear Oferta</a>
 
-
+           
                     </div>
 
 
@@ -63,7 +63,7 @@
                     {{ q.employment_status }}
 
               </span>
-                            <h2><a href="{% url 'jobs:job-single' q.id %}">{{ q.title }}</a></h2>
+                            <h2><a  href="{% url 'jobs:job-single' q.id %}">{{ q.title }}</a></h2>
 
                             In: <strong>{{ q.category }}</strong></p>
                         </div>

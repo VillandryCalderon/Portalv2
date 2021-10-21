@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-{% load static %}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,13 +11,13 @@
     <meta name="author" content="Your name">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+    <meta property="og:site_name" content="" /> <!-- website name -->
+    <meta property="og:site" content="" /> <!-- website link -->
+    <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
     <title>Aplicacion Web - Istmo Center</title>
@@ -38,172 +39,150 @@
     <!-- Favicon -->
     <link rel="icon" href="{% static 'core/assets/images/favicon.png' %}">
 
-<header class="site-navbar mt-3">
-  <div class="container-fluid">
-    <div class="row align-items-center">
-      
+    <header class="site-navbar mt-3">
+        <div class="container-fluid">
+            <div class="row align-items-center">
 
 
-      <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
-        <div class="container">
+
+                <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+                    <div class="container">
 
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <a class="navbar-brand logo-text"  href="{% url 'home'%}">Istmo</a>
-  
-            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                        <!-- Text Logo - Use this if you don't have a graphic logo -->
+                        <a class="navbar-brand logo-text" href="{% url 'home'%}">Istmo</a>
+
+                        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
 
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" >
-              <ul class="navbar-nav ms-auto navbar-nav-scroll">
-                <!--  <a>Tiene permisos de: {{perms.permissions}} </a>-->
-                  
-
-                  <li class="nav-item {% if request.path == '/' %}active{% endif %}">
-                      <a class="nav-link " aria-current="page" href="{% url 'home'%}">Inicio</a>
-                  </li>
-
-                  <li class="nav-item {% if request.path == 'job-listing/' %}active{% endif %}">
-                    <a class="nav-link"  href="{% url 'jobs:job-listing' %}">Job Listings</a>
-                </li>
+                        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                            <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                                <!--  <a>Tiene permisos de: {{perms.permissions}} </a>-->
 
 
-                <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-                  <a class="nav-link"  href="{% url 'jobs:about' %}">About</a>
-              </li>
+                                <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                                    <a class="nav-link " aria-current="page" href="{% url 'home'%}">Inicio</a>
+                                </li>
+
+                                <li class="nav-item {% if request.path == 'job-listing/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'jobs:job-listing' %}">Ofertas laborales</a>
+                                </li>
 
 
-              <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-                <a class="nav-link"  href="{% url 'jobs:contact' %}">Contact</a>
-            </li>
-
-            <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-              <a class="nav-link"  href="{% url 'jobs:service' %}">Services</a>
-          </li>
-                  {% if user.is_active %}
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false" href="">{{user.username}}</a>
-                      
-                      <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                          <li><a class="dropdown-item" href="home.html">Perfil</a></li>
-                          <li><div class="dropdown-divider"></div></li>
-                          <li><a class="dropdown-item" href="/accounts/logout">Cerrar sesion</a></li>
-                          <li><div class="dropdown-divider"></div></li>
-                          <li><a class="dropdown-item" href="{% url 'home' %}">Registrar</a></li>
-                          <li><div class="dropdown-divider"></div></li>
-                          <li><a class="dropdown-item" href="{% url 'home' %}">Guardae alimnon</a></li>
-                      </ul>
-                  </li>
-                  {% endif %}
-                 
-              </ul>
-              <span class="nav-item social-icons">
-                  <span class="fa-stack">
-                      <a href="#your-link">
-                          <i class="fas fa-circle fa-stack-2x"></i>
-                          <i class="fab fa-facebook-f fa-stack-1x"></i>
-                      </a>
-                  </span>
-                  <span class="fa-stack">
-                      <a href="#your-link">
-                          <i class="fas fa-circle fa-stack-2x"></i>
-                          <i class="fab fa-twitter fa-stack-1x"></i>
-                      </a>
-                  </span>
-              </span>
-          </div> <!-- end of navbar-collapse -->
+                                <li class="nav-item {% if request.path == 'job-post/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'jobs:job-post' %}">Crear Oferta</a>
+                                </li>
 
 
-        
+                                <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'jobs:contact' %}">Contact</a>
+                                </li>
+
+                                <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
+                                    <a class="nav-link" href="{% url 'jobs:service' %}">Services</a>
+                                </li>
+                                {% if user.is_active %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown"
+                                        aria-expanded="false" href="">{{user.username}}</a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <li><a class="dropdown-item" href="home.html">Perfil</a></li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/accounts/logout">Cerrar sesion</a></li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'home' %}">Registrar</a></li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'home' %}">Guardae alimnon</a></li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+
+                            </ul>
+                            <span class="nav-item social-icons">
+                                <span class="fa-stack">
+                                    <a href="#your-link">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                    </a>
+                                </span>
+                                <span class="fa-stack">
+                                    <a href="#your-link">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x"></i>
+                                    </a>
+                                </span>
+                            </span>
+                        </div> <!-- end of navbar-collapse -->
+
+                    </div>
+                </nav>
+
+
+            </div>
         </div>
-      </nav>
-
-
-      
-{% if user.is_authenticated %}
-      <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
-        <div class="ml-auto">
-
-
-          <ul class="nav nav-tabs">
-
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="True" aria-expanded="false">
-      {{request.user.first_name}} {{request.user.last_name}}</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
-
-    </div>
-  </li>
-
-
-</ul>
-
-
-
-
-        </div>
-      </div>
-
-
-
-{% endif %}
-    </div>
-  </div>
     </header>
 
-    <body>
+<body>
 
-      {% if message %}
-      {% for message in messages %}
-      <div class="notification {{ message.tags }}">
-          {{message}}
-      </div>
-      {% endfor %}
-  {% endif %}
-      
-  
-  <!-- Contenido cambiante-->
-  
-  
-  
-  
-  
-  
-  
-  
-  {% block content %}
-  
-  
-  
-  
-  {% endblock %}
-  
-  
-  
-    
-  
-  
-  
-      
-      
-      <!-- Scripts -->
-      <script src="{% static 'core/js/bootstrap.min.js' %}"></script><!-- Bootstrap framework -->
-      <script src="{% static 'core/js/purecounter.min.js' %}"></script> <!-- Purecounter counter for statistics numbers -->
-      <script src="{% static 'core/js/swiper.min.js' %}"></script><!-- Swiper for image and text sliders -->
-      <script src="{% static 'core/js/aos.js' %}"></script><!-- AOS on Animation Scroll -->
-      <script src="{% static 'core/js/script.js' %}"></script>  <!-- Custom scripts -->
-  
-      <script src="{% static 'core/focus/vendor/global/global.min.js' %}"></script>
-      <script src="{% static 'core/focus/js/quixnav-init.js' %}"></script>
-      <script src="{% static 'core/focus/js/custom.min.js' %}"></script>
-      <script src="{% static 'core/focus/vendor/jquery-steps/build/jquery.steps.min.js' %}"></script>
-      <script src="{% static 'core/focus/vendor/jquery-validation/jquery.validate.min.js' %}"></script>
-      <!-- Form validate init -->
-      <script src="{% static 'core/focus/js/plugins-init/jquery.validate-init.js' %}"></script>
-      <!-- Form step init -->
-      <script src="{% static 'core/focus/js/plugins-init/jquery-steps-init.js' %}"></script>
-  
-  </body>
+    {% if message %}
+    {% for message in messages %}
+    <div class="notification {{ message.tags }}">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- Contenido cambiante-->
+
+
+
+
+
+
+
+
+    {% block content %}
+
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script><!-- Bootstrap framework -->
+    <script src="{% static 'core/js/purecounter.min.js' %}"></script>
+    <!-- Purecounter counter for statistics numbers -->
+    <script src="{% static 'core/js/swiper.min.js' %}"></script><!-- Swiper for image and text sliders -->
+    <script src="{% static 'core/js/aos.js' %}"></script><!-- AOS on Animation Scroll -->
+    <script src="{% static 'core/js/script.js' %}"></script> <!-- Custom scripts -->
+
+    <script src="{% static 'core/focus/vendor/global/global.min.js' %}"></script>
+    <script src="{% static 'core/focus/js/quixnav-init.js' %}"></script>
+    <script src="{% static 'core/focus/js/custom.min.js' %}"></script>
+    <script src="{% static 'core/focus/vendor/jquery-steps/build/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'core/focus/vendor/jquery-validation/jquery.validate.min.js' %}"></script>
+    <!-- Form validate init -->
+    <script src="{% static 'core/focus/js/plugins-init/jquery.validate-init.js' %}"></script>
+    <!-- Form step init -->
+    <script src="{% static 'core/focus/js/plugins-init/jquery-steps-init.js' %}"></script>
+
+</body>
