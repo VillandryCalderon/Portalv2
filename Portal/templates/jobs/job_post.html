@@ -3,25 +3,124 @@
 
 {% block content %}
 
+     <!-- Contact -->
+     <section class="contact d-flex align-items-center py-5" id="contact">
+        <div class="container-fluid text-light">
+            <div class="row">
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
+                    <div style="width:90%">
+                        <div class="text-center text-lg-start py-4 pt-lg-0">
+                            <p>CONTACT</p>
+                            <h2 class="py-2">Send your query</h2>
+                            <p class="para-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>
+                        </div>
+                        <div>
+                            <div class="row" >
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" {{form.title}}
+                                    </div>                                
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                        <select id="category" name="category" class="form-control">{{ form.category }}
+                                          <option>Web Design</option>
+                                          <option>Graphic Design</option>
+                                          <option>Web Developing</option>
+                                          <option>Software Engineering</option>
+                                          <option>HR</option>
+                                          <option>Marketing</option>
+                                        </select>                                    
+                                    <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
+                                    </div>                                
+                                </div>
+
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Istmo Center" {{ form.company_name}}
+                                    </div>                                 
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                            <select id="employment_status" name="employment_status" class="form-control">{{ form.employee.status }}
+                                              <option>Part Time</option>
+                                              <option>Full Time</option>
+                                              <option>Freelance</option>
+                                            </select>
+                                        
+                                        <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
+                                    </div>                                 
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Numero de vacantes"{{ form.vacancy}}
+                                    </div>                                 
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group py-2">
+                                            <select id="employment_status" name="employment_status" class="form-control">{{ form.employee.status }}
+                                              <option>Male</option>
+                                              <option>Female</option>
+                                              <option>Any</option>
+                                            </select>
+                                        
+                                        <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
+                                    </div>                                 
+                                </div>
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="form-group py-2">
+                              <input type="select"class="form-control" id="gender">{{ form.gender }}
+                            </div>  
+                            <div class="form-group py-2">
+                                <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
+                            </div>                            
+                        </div>
+                        <div class="my-3">
+                            <input type="submit" value="POST" class="btn btn-primary btn-md text-white">
+                        </div>
+                    </div> <!-- end of div -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
+                   
+                        <form action="" method="POST" class="form-control form-control-input">{% csrf_token %}
+    
+                            {{ form }}    
+    
+                        </form>
+                       
+                
+                
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </section> <!-- end of contact -->
+
     <section class="site-section" id="next-section">
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-lg-8 mb-5 mb-lg-0">
-                    <center><h1 class="lead">Post a Job</h1></center>
-                    <form action="" method="POST" class="">{% csrf_token %}
-
-                        {{ form }}
-
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <input type="submit" value="POST" class="btn btn-primary btn-md text-white">
-                            </div>
-                        </div>
-
-
-                    </form>
-                </div>
+               
 
 
             </div>
