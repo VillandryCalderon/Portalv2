@@ -3,10 +3,8 @@
 
 {% load static %}
 
-
-
-
 {% block content %}
+<body style="background-color:#212d37;">
     <!-- HOME -->
 
     <section class="section-hero overlay inner-page bg-image"
@@ -32,14 +30,17 @@
                                  alt="Free Website Template By Free-Template.co">
                         </div>
                         <div>
-                            <h2>{{ q.title }}</h2>
+                            <h2 class="text-white font-weight-bold">{{ q.title }}</h2>
                             <div>
-                                <span class="ml-0 mr-2 mb-2"><span
-                                        class="icon-briefcase mr-2"></span>{{ q.company_name }}</span>
-                                <span class="m-2"><span class="icon-room mr-2"></span>{{ q.job_location }}</span>
-                                <span class="m-2"><span class="icon-clock-o mr-2"></span><span
-                                        class="text-primary"> {{ q.employment_status }}
-                      </span></span>
+                                <span style=color:#e9790e>
+                                    <span class="icon-briefcase mr-2">
+                                    </span>{{ q.company_name }}</span>
+                                <span style=color:#e9790e>
+                                    <span class="icon-room mr-2">
+                                    </span>{{ q.job_location }}</span>
+                                <span style=color:#e9790e>
+                                    <span class="icon-clock-o mr-2">
+                                    </span><span style=color:#e9790e> {{ q.employment_status }}</span>
                             </div>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                     <div class="row">
 
                         <div class="col-6">
-                            <a href="{% url 'jobs:apply' %}" class="btn btn-block btn-primary btn-md">Apply Now</a>
+                            <a style="background-color: #074d93;" href="{% url 'jobs:apply' %}" class="btn btn-dark badge-dark">Aplicar ya</a>
                         </div>
                     </div>
                 </div>
@@ -56,31 +57,31 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="mb-5">
-                        <figure class="mb-5"><img src="{% static 'images/sq_img_3.jpg' %}"
-                                                  alt="Free Website Template by Free-Template.co"
-                                                  class="img-fluid rounded"></figure>
-                        <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span
-                                class="icon-align-left mr-3"></span>Job
-                            Description</h3>
-                        <p>{{ q.description }}</p>
+                        <figure class="mb-5">
+                            <img class="img-fluid" src="{% static 'core/assets/images/DinoQR.jpg' %}" alt="Imagen Codigo"
+                            class="img-fluid rounded"></figure>
+                        <h3 style=color:#e9790e>
+                            <span style=color:#e9790e class="icon-align-left mr-3"></span>
+                            Descripcion de empleo</h3>
+                        <p style=color:white>{{ q.description }}</p>
                     </div>
                     <div class="mb-5">
-                        <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span
-                                class="icon-rocket mr-3"></span>Responsibilities</h3>
+                        <h3 style=color:#e9790e><span
+                                class="icon-rocket mr-3"></span>Responsabilidades</h3>
                         <ul class="list-unstyled m-0 p-0">
                             <li class="d-flex align-items-start mb-2"><span
-                                    class="icon-check_circle mr-2 text-muted"></span><span>{{ q.responsibilities }}</span>
+                                    class="icon-check_circle mr-2 text-muted"></span><span style=color:white>{{ q.responsibilities }}</span>
                             </li>
 
                         </ul>
                     </div>
 
                     <div class="mb-5">
-                        <h3 class="h5 d-flex align-items-center mb-4 text-primary"><span class="icon-book mr-3"></span>Experience
+                        <h3 style=color:#e9790e><span class="icon-book mr-3"></span>Experiencia
                         </h3>
                         <ul class="list-unstyled m-0 p-0">
                             <li class="d-flex align-items-start mb-2"><span
-                                    class="icon-check_circle mr-2 text-muted"></span><span>{{ q.experience }}</span>
+                                class="icon-check_circle mr-2 text-muted"></span><span style=color:white>{{ q.experience }}</span>
                             </li>
 
                         </ul>
@@ -90,25 +91,22 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="bg-light p-3 border rounded mb-4">
-                        <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Job Summary</h3>
+                        <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Resumen de Oferta </h3>
                         <ul class="list-unstyled pl-3 mb-0">
-                            <li class="mb-2"><strong class="text-black">Published
-                                on:</strong> {{ q.published_on|timesince }} ago
+                            <li class="mb-2"><strong class="text-black">Publicado hace:</strong> {{ q.published_on|timesince }} ago
                             </li>
-                            <li class="mb-2"><strong class="text-black">Vacancy:</strong> {{ q.vacancy }}</li>
-                            <li class="mb-2"><strong class="text-black">Employment
-                                Status:</strong> {{ q.employment_status }}</li>
-                            <li class="mb-2"><strong class="text-black">Experience:</strong> {{ q.experience }}</li>
-                            <li class="mb-2"><strong class="text-black">Job Location:</strong> {{ q.job_location }}</li>
-                            <li class="mb-2"><strong class="text-black">Salary:</strong> {{ q.Salary }}</li>
-                            <li class="mb-2"><strong class="text-black">Gender:</strong> {{ q.gender }}</li>
-                            <li class="mb-2"><strong class="text-black">Application
-                                Deadline:</strong> {{ q.application_deadline }}</li>
+                            <li class="mb-2"><strong class="text-black">Vacantes:</strong> {{ q.vacancy }}</li>
+                            <li class="mb-2"><strong class="text-black">Tipo de Contrato:</strong> {{ q.employment_status }}</li>
+                            <li class="mb-2"><strong class="text-black">Experiencia:</strong> {{ q.experience }}</li>
+                            <li class="mb-2"><strong class="text-black">Ubicacion:</strong> {{ q.job_location }}</li>
+                            <li class="mb-2"><strong class="text-black">Salario aproximado:</strong> ₡ {{ q.Salary }}</li>
+                            <li class="mb-2"><strong class="text-black">Genero:</strong> {{ q.gender }}</li>
+                            <li class="mb-2"><strong class="text-black">Fecha de finalización:</strong> {{ q.application_deadline }}</li>
                         </ul>
                     </div>
 
                     <div class="bg-light p-3 border rounded">
-                        <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Share</h3>
+                        <h3 class="text-primary  mt-3 h5 pl-3 mb-3 ">Compartir Codigo QR</h3>
                         <div class="px-3">
                             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-facebook"></span></a>
                             <a href="#" class="pt-3 pb-3 pr-3 pl-0"><span class="icon-twitter"></span></a>
@@ -122,7 +120,7 @@
         </div>
     </section>
 
-
+</body>
 
 {% endblock %}
 
