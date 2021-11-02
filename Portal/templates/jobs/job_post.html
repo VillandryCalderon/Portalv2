@@ -3,130 +3,186 @@
 
 {% block content %}
 
-     <!-- Contact -->
-     <section class="contact d-flex align-items-center py-5" id="contact">
-        <div class="container-fluid text-light">
-            <div class="row">
-                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
-                    <div style="width:90%">
-                        <div class="text-center text-lg-start py-4 pt-lg-0">
-                            <p>CONTACT</p>
-                            <h2 class="py-2">Send your query</h2>
-                            <p class="para-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos dicta mollitia totam explicabo obcaecati quia laudantium repudiandae.</p>
-                        </div>
-                        <div>
-                            <div class="row" >
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" {{form.title}}
-                                    </div>                                
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                        <select id="category" name="category" class="form-control">{{ form.category }}
-                                          <option>Web Design</option>
-                                          <option>Graphic Design</option>
-                                          <option>Web Developing</option>
-                                          <option>Software Engineering</option>
-                                          <option>HR</option>
-                                          <option>Marketing</option>
-                                        </select>                                    
-                                    <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
-                                    </div>                                
-                                </div>
 
 
+<section class="contact d-flex align-items-center py-5" id="next-section">
+  <div class="container">
 
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Istmo Center" {{ form.company_name}}
-                                    </div>                                 
-                                </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 mb-5 mb-lg-0">
+        <center style="margin-top: 100px;">
+          <h1 style="color:white;" class="lead">Crear Ofertas de empleo</h1>
+        </center>
 
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                            <select id="employment_status" name="employment_status" class="form-control">{{ form.employee.status }}
-                                              <option>Part Time</option>
-                                              <option>Full Time</option>
-                                              <option>Freelance</option>
-                                            </select>
-                                        
-                                        <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
-                                    </div>                                 
-                                </div>
+        <div class="row">
+          <form action="" method="POST" class="">{% csrf_token %}
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_title">Titulo de  la Oferta:</label>
+                    <input type="text" name="title" class="form-control" placeholder="Ingeniero de Software"
+                      maxlength="100" required="">
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_company_name">Compañia:</label>
+                    <input type="text" name="company_name" placeholder="Empresa" class="form-control" maxlength="200"
+                      required="" id="id_company_name">
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_category">Categoria:</label>
 
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Numero de vacantes"{{ form.vacancy}}
-                                    </div>                                 
-                                </div>
+                    <select name="category" required="" id="id_category" class="form-control">
+                      <option value="" selected="">---------</option>
 
-                                <div class="col-lg-6">
-                                    <div class="form-group py-2">
-                                            <select id="employment_status" name="employment_status" class="form-control">{{ form.employee.status }}
-                                              <option>Male</option>
-                                              <option>Female</option>
-                                              <option>Any</option>
-                                            </select>
-                                        
-                                        <!--<input type="select" class="form-control form-control-input" id="exampleFormControlInput2"  {{ form.employee.status }}-->  
-                                    </div>                                 
-                                </div>
+                      <option value="Web Design">Web Design</option>
 
+                      <option value="Graphic Design">Graphic Design</option>
 
-                            </div>
+                      <option value="Web Developing">Web Developing</option>
 
+                      <option value="Software Engineering">Software Engineering</option>
 
+                      <option value="HR">HR</option>
 
+                      <option value="Marketing">Marketing</option>
 
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
 
+                    <label style="color:white;" class="required" for="id_job_location">Ubicación:</label>
+                    <input type="text" name="job_location" placeholder="San josé" class="form-control" maxlength="120"
+                      required="" id="id_job_location">
 
+                  </div>
+                </div>
 
-
-
-
-
-
-
-                            <div class="form-group py-2">
-                              <input type="select"class="form-control" id="gender">{{ form.gender }}
-                            </div>  
-                            <div class="form-group py-2">
-                                <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
-                            </div>                            
-                        </div>
-                        <div class="my-3">
-                            <input type="submit" value="POST" class="btn btn-primary btn-md text-white">
-                        </div>
-                    </div> <!-- end of div -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
-                   
-                        <form action="" method="POST" class="form-control form-control-input">{% csrf_token %}
-    
-                            {{ form }}    
-    
-                        </form>
-                       
+              </div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
+                    <div>
+                      <label style="color:white;" class="required" for="id_employment_status">Tipo de Contrato:</label>
+                      <select class="form-control" name="employment_status" required="" id="id_employment_status">
+                        <option value="" selected="">---------</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Freelance">Freelancer</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="form-group py-2">
+                    <div>
+                      <label style="color:white;" class="required" for="id_vacancy">Vacantes:</label>
+                      <input type="text" name="vacancy" placeholder="1" class="form-control" maxlength="10" required=""
+                        id="id_vacancy">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group py-2">
+                    <div>
+                      <div>
+                        <label style="color:white;" class="required" for="id_gender">Genero:</label>
+                        <select class="form-control" name="gender" required="" id="id_gender">
+                          <option value="" selected="">---------</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Any">Any</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_experience">Experiencia:</label>
+                    <input type="text" name="experience" placeholder="3 años" class="form-control" maxlength="100"
+                      required="" id="id_experience">
+                  </div>
+                </div>
                 
-                
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of contact -->
+                <div class="col-lg-2">
+                  <div class="form-group py-2">
+                    <label style="color:white;" for="id_Salary">Salario:</label>
+                    <input type="text" name="Salary" placeholder="450.000" class="form-control" maxlength="100"
+                      id="id_Salary">
+                  </div>
+                </div>
 
-    <section class="site-section" id="next-section">
-        <div class="container">
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_description">Descripción:</label>
+                    <textarea name="description" cols="40" rows="5" class="form-control" required=""
+                      id="id_description"></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_responsibilities">Responsabilidades:</label>
+                    <textarea name="responsibilities" cols="40" rows="5" class="form-control" required=""
+                      id="id_responsibilities"></textarea>
 
-            <div class="row justify-content-center">
-               
+                  </div>
+                </div>
+              </div>
+               <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_application_deadline_0">Fecha de
+                      finalizacion:</label>
+                    <input type="text" name="application_deadline" placeholder="2021-12-01" class="form-control"
+                      maxlength="100" id="id_application_deadline_0">
 
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group py-2">
+                    <label style="color:white;" class="required" for="id_published">Fecha de Publicacion:</label>
+                    <input type="text" name="published_on" placeholder="2021-10-21 21:36:01" class="form-control"
+                      maxlength="100" id="id_published">
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="row form-group">
+                    <div class="col-md-12">
+                      <input style="background-color: #074d93;" type="submit" value="Crear"
+                        class="btn btn-primary btn-md text-white">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
 
             </div>
+          </form>
 
         </div>
-    </section>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 
 {% endblock %}
