@@ -4,6 +4,9 @@
 {% load static %}
 
 {% block content %}
+
+    
+
 <body style="background-color:#212d37;">
     <!-- HOME -->
 
@@ -57,8 +60,11 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="mb-5">
+                        
+                         
                         <figure class="mb-5">
-                            <img class="img-fluid" src="{% static 'core/assets/images/DinoQR.jpg' %}" alt="Imagen Codigo"
+                            
+                            <img class="img-fluid" src="{{q.qr_code.url}}" alt="Imagen Codigo"
                             class="img-fluid rounded"></figure>
                         <h3 style=color:#e9790e>
                             <span style=color:#e9790e class="icon-align-left mr-3"></span>
