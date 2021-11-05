@@ -15,11 +15,11 @@
       laborales</p>
     <div class="d-flex align-items-center">
       <p class="p-2"><i class="fas fa-laptop-house fa-lg"></i></p>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Nos alegra conocer nuevas personas con un talento y pasión excepcionales para su trabajo.</br> Estaremos encantados de recibir su información, de acuerdo con el área de su interés.</p>
     </div>
     <div class="d-flex align-items-center">
       <p class="p-2"><i class="fas fa-wifi fa-lg"></i></p>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Estaremos encantados de recibir su información, de acuerdo con el área de su interés.</p>
     </div>
     <form id="job-main-form" method="get" action="{% url 'jobs:search' %}" class="search-jobs-form">
       <div class="row mb-5">
@@ -48,16 +48,6 @@
         </div>
       </div>
     </form>
-
-
-    <div class="my-3">
-
-
-
-    </div>
-
-
-
   </div> <!-- end of container -->
 </section> <!-- end of home -->
 
@@ -67,17 +57,10 @@
   <div class="container">
     <div class="row d-flex align-items-center">
       <div class="col-lg-7" data-aos="fade-right">
-
         <h1 style="color:#e9790e;">Escanea el codigo QR<br>Y encontra tu trabajo ideal</h1>
-        <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut
-          dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum
-          voluptatum quisquam ad veritatis dolorem.</p>
-        <p class="py-2 para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed accusantium aut
-          dolores inventore architecto modi cupiditate eligendi corporis, illum illo culpa. Reiciendis, molestias. Illum
-          voluptatum quisquam ad veritatis dolorem.</p>
-
-        <div class="my-3">
-          <a style="background-color: #074d93;" class="btn" href="#your-link">Resgistrate</a>
+        <p class="py-2 para-light">Ser los mejores en lo que hacemos es nuestro objetivo. Y somos excelentes en eso. Confíe en nosotros para resolver los diferentes retos que pueda presentar su negocio en temas de Desarrollo de Software, Logística de distribución y Centros de contacto.</p>
+            <div class="my-3">
+          <a style="background-color: #074d93;" class="btn" href=" {% url 'accounts:signup' %}">Resgistrate</a>
         </div>
       </div>
       <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
@@ -98,38 +81,32 @@
     </div>
     <div class="row pb-0 block__19738 section-counter">
 
-      <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+      <div class="col-6 col-md-6 col-lg-6 mb-5 mb-lg-0">
         <div class="d-flex align-items-center justify-content-center mb-2">
-          <strong class="number" data-number=">{{ candidates }}">0</strong>
+          <strong class="number" data-number=">{{ candidates }}">{{candidates}}</strong>
         </div>
         <span class="caption">Candidatos</span>
       </div>
 
-      <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+      <div class="col-6 col-md-6 col-lg-6 mb-5 mb-lg-0">
         <div class="d-flex align-items-center justify-content-center mb-2">
-          <strong class="number" data-number="{{ job_qs }}"> 0 </strong>
+          <strong class="number" data-number="{{ job_qs }}">{{job_qs}} </strong>
         </div>
         <span class="caption"> Ofertas laborales</span>
       </div>
 
-      <div class="col-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-        <div class="d-flex align-items-center justify-content-center mb-2">
-          <strong class="number" data-number="">0</strong>
-        </div>
-        <span class="caption">Ofertas de empleo llenas</span>
-      </div>
     </div>
   </div>
 </section>
-<div>
+
 
   <section class="services d-flex align-items-center py-5" id="services" style="padding-top: 25%;">
     <div class="container text-light">
       <div class="text-center pb-4">
         <h2 style=color:white; class="py-2">Ofertas laborales destacadas</h2>
       </div>
-      <div class="row gy-4 py-2" data-aos="zoom-in">
-        {% for q in query %}
+      <div class="row gy-2 py-1" data-aos="zoom-in">
+        {% for q in query%}
         <div class="col-lg-4 py-2">
           <div class="card bg-transparent">
             <i class="fas fa-home fa-2x"></i>
@@ -145,28 +122,29 @@
         </div>
         {% endfor %}
       </div> <!-- end of row -->
+
+     
+
+      <div class="row pagination-wrap">
+        <div class="col-md-6 text-center">
+          <div class="custom-pagination ml-auto">
+            {% if query.has_previous %}
+            <a href="?page={{ query.previous_page_number }}" class="prev">Anterior</a>
+            {% endif %}
+            <div class="d-inline-block">
+              Pagina <a href="#" class="active">{{ query.number }}</a> de {{ query.number }}
+            </div>
+            {% if query.has_next %}
+            <a href="?page={{ query.next_page_number }}" class="next">Siguiente</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    
+
     </div> <!-- end of container -->
 
-</div>
 
-<div class="row pagination-wrap">
-
-  <div class="col-md-6 text-center text-md-left">
-    <div class="custom-pagination ml-auto">
-      {% if query.has_previous %}
-      <a href="?page={{ query.previous_page_number }}" class="prev">Previous</a>
-      {% endif %}
-      <div class="d-inline-block">
-        Page <a href="#" class="active">{{ query.number }}</a> of {{ query.paginator.num_pages }}
-
-
-      </div>
-      {% if query.has_next %}
-      <a href="?page={{ query.next_page_number }}" class="next">Next</a>
-      {% endif %}
-    </div>
-  </div>
-</div>
 
 
 </section> <!-- end of services -->

@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% load bootstrap %}
+
 {% load static %}
 
 {% block content %}
     <section class="home-section section-hero inner-page overlay bg-image"
-             style="background-image: url('images/hero_1.jpg');" id="home-section">
+             style="background-image: url('images/hero_1.png');" id="home-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
@@ -32,7 +32,7 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <form action="/accounts/signup/" method="POST">{% csrf_token %}
 
-                        {{ form|bootstrap }}
+                        {{ form}}
 
                         <div class="row form-group">
                             <div class="col-md-12">

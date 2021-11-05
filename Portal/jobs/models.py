@@ -2,6 +2,11 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 from django.utils import timezone
+import qrcode
+from io import BytesIO
+from django.core.files import File
+from PIL import Image, ImageDraw
+
 
 
 class Contact(models.Model):
@@ -51,15 +56,28 @@ class JobListing(models.Model):
     experience = models.CharField(max_length=100)
     job_location = models.CharField(max_length=120)
     Salary = models.CharField(max_length=100, null=True, blank=True)
-    image = models.ImageField(blank=True, upload_to='media', null=True)
+    qr_code = models.ImageField(blank=True, upload_to='media', null=True)
     application_deadline = models.DateTimeField()
     published_on = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
+    def get_absolute_url(self):       
         return reverse("jobs:job-single", args=[self.id])
+    
+    def save(self, *args, **kwargs):
+       
+        ruta = ("http://127.0.0.1:8000/jobs/job-single/"+str(self.id))
+        qrcode_img =qrcode.make(ruta)
+        canvas = Image.new('RGB', (380, 380), 'white')
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{self.title}.png'
+        buffer = BytesIO()
+        canvas.save(buffer,'PNG')
+        self.qr_code.save(fname, File(buffer), save=False)
+        canvas.close()
+        super().save(*args, **kwargs)
 
 
 class ApplyJob(models.Model):

@@ -5,8 +5,7 @@
 {% block content %}
 <body style="background-color:#212d37;">
     <section class="home-section section-hero inner-page overlay bg-image"
-             style="background-image:url('{% static 'images/hero_1.jpg' %}')";
-             id="home-section">
+             style="background-image:url('{% static 'images/hero_1.png' %}')"id="home-section">
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -34,12 +33,14 @@
                             <div class="row mb-5 justify-content-center">
                                 <div class="col-md-7 text-center">
                                     <h2 class="section-title mb-2">{{ job_qs }} Lista de Ofertas</h2>
+                                    {% if user.is_staff %}
                                     <div class="mb-5 text-center">
                                         <a href="{% url 'jobs:job-post' %}"
                                            class="btn btn-primary border-width-2 d-none d-lg-inline-block">
                                       <span class="mr-2 icon-paper-plane">                    
                                       </span>Crear  Oferta</a>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="card">
@@ -80,7 +81,7 @@
                                                         </td>
                                                         <td>{{q.job_location}}</td>
                                                         <td><a href="{% url 'jobs:job-single' q.id %}"><img class="img-fluid"
-                                                                    src="{% static 'images/featured-listing-2.jpg' %}"
+                                                                    src="{% static 'images/featured-listing-2.png' %}"
                                                                     alt="image"></a>
                                                         </td>
                                                     </tr>
