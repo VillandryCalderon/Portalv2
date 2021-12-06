@@ -63,7 +63,7 @@
                                                         <th>Estado</th>
                                                         <th>Fecha de creación</th>
                                                         <th>Localizacion</th>
-                                                        <th>Codigo QR</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 {% for q in query %}
@@ -80,9 +80,7 @@
                                                         <td><span>{{q.published_on}}</span>
                                                         </td>
                                                         <td>{{q.job_location}}</td>
-                                                        <td><a href="{% url 'jobs:job-single' q.id %}"><img class="img-fluid"
-                                                                    src="{% static 'images/featured-listing-2.png' %}"
-                                                                    alt="image"></a>
+                                                        <td><a href="{% url 'jobs:job-single' q.id %}"></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

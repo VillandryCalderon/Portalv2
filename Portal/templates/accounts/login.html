@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    <section class="home-section section-hero inner-page overlay bg-image"
+   <!-- <section class="home-section section-hero inner-page overlay bg-image"
+
              style="background-image: url('images/hero_1.jpg');" id="home-section">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -15,62 +16,67 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
-
-    <section class="site-section" id="next-section">
+    <section class="about d-flex align-items-center text-light py-5" id="about">
         <div class="container">
-            <div class="row justify-content-center">
+          <div class="row d-flex align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+              <h1 style="color:#e9790e;">LOGIN</h1>
 
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <p>Already have your account?</p>
-                    <form action="" method="POST">{% csrf_token %}
+              <div>
+                <form action="" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <label style="color:white;"><strong>Usuario</strong></label>                                            
+                        <input type="text" class="form-control" placeholder="Usuario"  {{form.username}}                           
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color:white;"><strong>Contraseña</strong></label>
+                        <input type="password" class="form-control" placeholder="Contraseña" {{form.password}}
+                        </div>
+                    <div class="form-row d-flex justify-content-between mt-4 mb-2">
                         <div class="form-group">
-                            <label><strong>Usuario</strong></label>                                            
-                            <input type="text" class="form-control" placeholder="Usuario"  {{form.username}}                           
+                            <div class="form-check ml-2">
+                                <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
+                                <label style="color:white;" class="form-check-label" for="basic_checkbox_1">Recordarme</label>
+                            </div>
                         </div>
-
                         <div class="form-group">
-                            <label><strong>Contraseña</strong></label>
-                            <input type="password" class="form-control" placeholder="Contraseña" {{form.password}}
-                            </div>
-                        <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                            <div class="form-group">
-                                <div class="form-check ml-2">
-                                    <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
-                                    <label class="form-check-label" for="basic_checkbox_1">Remember me</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <a href="page-forgot-password.html">Forgot Password?</a>
-                            </div>
+                            <a href="page-forgot-password.html">Olvide mi contraseña?</a>
                         </div>
+                    </div>
 
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
-                            </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input style="background-color: #074d93;"  type="submit" value="Login" class="btn btn-primary btn-md text-white">
                         </div>
+                    </div>
 
 
-                    </form>
-                </div>
+                </form>
 
+              </div>
+             
+                
             </div>
-        </div>
-    </section>
+            <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+              <img class="img-fluid" src="{% static 'core/assets/images/about.jpg' %}" alt="about">
+            </div>
+          </div> <!-- end of row -->
+        </div> <!-- end of container -->
+      </section> <!-- end of about -->
+
     <section class="py-5 bg-image overlay-primary fixed overlay">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h2 class="text-white">Looking For A Job?</h2>
-                    <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora
-                        adipisci
-                        impedit.</p>
-                    </p>
+                    <h2 class="text-white">Quieres ver nuevas Ofertas de empleo?</h2>
+                    
+                    
                 </div>
                 <div class="col-md-3 ml-auto">
-                    <a href="{% url 'accounts:signup' %}" class="btn btn-warning btn-block btn-lg">Sign Up</a>
+                    <a href="{% url 'accounts:signup' %}" class="btn btn-warning btn-block btn-lg">Registrate</a>
                 </div>
             </div>
         </div>

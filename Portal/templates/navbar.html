@@ -66,11 +66,11 @@
                 <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                   <a class="nav-link " aria-current="page" href="{% url 'home'%}">Inicio</a>
                 </li>
-
+                {% if user.is_staff %}
                 <li class="nav-item {% if request.path == 'job-listing/' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'jobs:job-listing' %}">Lista de empleos</a>
                 </li>
-
+                {% endif %}
 
                <!-- <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'jobs:about' %}">About</a>
