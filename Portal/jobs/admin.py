@@ -15,3 +15,12 @@ class JobListingAdmin(admin.ModelAdmin):
             obj.user = request.user
             obj.save()
 
+class ApplyJobAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email','file')
+    actions = None
+
+    def save_model(self, request, obj, form, change):
+        if not obj.user:
+            obj.user = request.user
+            obj.save()
+

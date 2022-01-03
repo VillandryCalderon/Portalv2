@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView
 
 
+
 def home(request):
     qs = JobListing.objects.all()
     jobs = JobListing.objects.all().count()
@@ -53,7 +54,7 @@ def contact(request):
     }
     return render(request, "jobs/contact.html", context)
 
-
+# vista de lista de empleos
 @login_required
 def job_listing(request):
     query = JobListing.objects.all().count()
@@ -75,7 +76,7 @@ def job_listing(request):
     }
     return render(request, "jobs/job_listing.html", context)
 
-
+# crear empleo
 @login_required
 def job_post(request):
     form = JobListingForm(request.POST or None)
@@ -89,7 +90,7 @@ def job_post(request):
     }
     return render(request, "jobs/job_post.html", context)
 
-
+# empleo  por id
 def job_single(request, id):
     job_query = get_object_or_404(JobListing, id=id)
 
@@ -99,6 +100,7 @@ def job_single(request, id):
     return render(request, "jobs/job_single.html", context)
 
 
+# aplicar al empleo
 @login_required
 def apply_job(request):
     form = JobApplyForm(request.POST or None, request.FILES)
@@ -122,3 +124,28 @@ class SearchView(ListView):
         return self.model.objects.filter(title__contains=self.request.GET['title'],
                                          job_location__contains=self.request.GET['job_location'],
                                          employment_status__contains=self.request.GET['employment_status'])
+
+
+
+# vista de lista de empleos
+@login_required
+def jobapply_listing(request):
+    query = ApplyJob.objects.all().count()
+
+    qs = ApplyJob.objects.all()
+    paginator = Paginator(qs, 3)  # Show 3 jobs per page
+    page = request.GET.get('page')
+    try:
+        qs = paginator.page(page)
+    except PageNotAnInteger:
+        qs = paginator.page(1)
+    except EmptyPage:
+        qs = paginator.page(paginator.num_pages)
+
+    context = {
+        'query': qs,
+        'job_qs': query
+
+    }
+    return render(request, "jobs/ApplyJobListing.html", context)
+

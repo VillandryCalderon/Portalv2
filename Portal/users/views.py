@@ -1,11 +1,11 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import render
-from infoprofile.forms import FormularioUser
+from users.forms import FormularioUser
 from .models import UserProfile
 from .models import UserEducation
 from . import serializers
-from jobs.permissions import IsOwnerOrReadOnly
+#from core.permissions import IsOwnerOrReadOnly
 from django.http import HttpRequest
 
 
@@ -45,4 +45,3 @@ class formularioUserView(HttpRequest):
         
     
     
-

@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import User,Group
 from django.utils.translation import ugettext as _
 
@@ -7,9 +6,6 @@ from companies.models import Organization
 from education.models import Certification
 from education.models import Institution
 from . import constants
-
-# Create your models here.
-
 
 
 class UserProfile(models.Model):

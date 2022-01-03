@@ -27,28 +27,28 @@ from django.conf.urls import url, include
 from jobs.routers import DefaultRouter
 from education.urls import router as router_education
 from companies.urls import router as router_companies
-from infoprofile.forms import FormularioUser
-from infoprofile.urls import router as router_user_profile
+#from infoprofile.forms import FormularioUser
+#from infoprofile.urls import router as router_user_profile
 from django.contrib.auth import views as auth_views
-from infoprofile.views import formularioUserView
+from users.views import formularioUserView
 
 
 router = DefaultRouter()
 router.extend(router_education)
 router.extend(router_companies)
-router.extend(router_user_profile)
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('jobs/', include('jobs.urls', namespace='jobs')),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
-    
+    path('accounts/', include('accounts.urls', namespace='accounts')),    
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    #path('',include('jobs.urls')),
     
+    path('RegistrarUsuario/', formularioUserView.index,name='RegistrarUsuario'),
+    path('guardarusuario/', formularioUserView.index,name='guardarusuario'),    
 
 ]
 

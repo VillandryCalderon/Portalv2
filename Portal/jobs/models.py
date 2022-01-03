@@ -6,6 +6,10 @@ import qrcode
 from io import BytesIO
 from django.core.files import File
 from PIL import Image, ImageDraw
+from companies.models import Organization
+from education.models import Certification
+from education.models import Institution
+
 
 
 
@@ -43,8 +47,7 @@ GENDER = (
 
 
 class JobListing(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-                             null=True, editable=False, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True, editable=False, blank=True)
     title = models.CharField(max_length=100)
     company_name = models.CharField(max_length=200)
     employment_status = models.CharField(choices=JOB_TYPE, max_length=10)
@@ -84,6 +87,9 @@ class ApplyJob(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
     file = models.FileField(null=True)
-
     def __str__(self):
         return self.name
+    def get_absolute_url(self):       
+        return reverse("jobs:job-single", args=[self.id])
+    
+    

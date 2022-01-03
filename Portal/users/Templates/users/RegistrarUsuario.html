@@ -1,0 +1,73 @@
+{% extends "core/Base.html" %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+{% block content %}
+
+<div style="margin-top: 30px; background-color: black">
+  {% if form.errors %}
+  <div class="alert alert-danger" role="alert">Se ha generado un error</div>
+  {% endif %}
+
+  <div class="slider-1 testimonial text-light d-flex align-items-center">
+    <div class="container">
+      <div class="row p-1" data-aos="zoom-in">
+        <div class="row">
+          <div class="content-body">
+            <div class="container-fluid">
+              <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                  <div class="welcome-text">
+                    <h4>Hola, Bienvenido {{user.username}}!</h4>
+                    <p class="mb-0">
+                      Por favor ingrese su informacion personal
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="
+                    col-sm-6
+                    p-md-0
+                    justify-content-sm-end
+                    mt-2 mt-sm-0
+                    d-flex
+                  "
+                ></div>
+              </div>
+
+              <div class="row">
+                <div class="col-xl-12 col-xxl-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Perfil de usuario</h4>
+                    </div>
+                    <div class="card-body">
+                      <form
+                        class="step-form-horizontal"
+                        action="{% url 'guardarusuario' %}"
+                        method="POST"
+                      >
+                        {% csrf_token %} {% if mensaje %}
+                        <div class="alert alert-success" role="alert">
+                          Usuario registrado
+                        </div>
+
+                        {% endif %} 
+                        
+                            {{ form|crispy }}
+                        
+                       
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

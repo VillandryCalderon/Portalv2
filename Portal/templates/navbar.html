@@ -72,40 +72,48 @@
                 </li>
                 {% endif %}
 
-               <!-- <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-                  <a class="nav-link" href="{% url 'jobs:about' %}">About</a>
-                </li>
-
-
-                <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-                  <a class="nav-link" href="{% url 'jobs:contact' %}">Contact</a>
-                </li>-->
                 {% if user.is_staff %}
-                <li class="nav-item {% if request.path == 'about/' %}active{% endif %}">
-                  <a class="nav-link" href="{% url 'jobs:service' %}">Aplicantes</a>
+                <li class="nav-item {% if request.path == 'ApplyJobListing/' %}active{% endif %}">
+                  <a class="nav-link" href="{% url 'jobs:ApplyJobListing' %}">Aplicantes</a>
                 </li>
                 {% endif %}
 
-                <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
+                <!--<li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'accounts:logout' %}">Cerrar Sesion</a>
-                </li>
+                </li>-->
                 <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'accounts:login' %}">Iniciar Sesion</a>
                 </li>
 
-                <div>
-                  {% if user.is_active %}
-                  <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+
+                <li class="nav-item {% if request.path == 'infoprofile/' %}active{% endif %}">
+                  <a class="nav-link" href="">Perfil</a>
+                </li>
+
+                {% if user.is_active %}
+                <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
+                  <a class="nav-link" href="">  {{user.first_name}} {{user.last_name}} </a>
+                </li>
+                <!--<div class="dropdown text-end">
+                  <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
+                    {{user.first_name}} {{user.last_name}}  <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                  </a>
+                  <ul class="dropdown-menu text-smal  l" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="">My Perfil</a></li>-
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Cerrar sesion</a></li>
+                  </ul>
+                </div>-->
+                {% endif %}
+
+              </ul>
+                
+                  <!--<li class="nav-item {% if request.path == '/' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'home' %}">{{user.first_name}} {{user.last_name}}</a>
-                  </li>
-                  {% endif %}
+                  </li>-->
                   
-
-                </div>
-        </nav>
-
-
-
+            </div>
+          </nav>
       </div>
     </div>
   </header>
@@ -122,19 +130,7 @@
 
 
   <!-- Contenido cambiante-->
-
-
-
-
-
-
-
-
   {% block content %}
-
-
-
-
   {% endblock %}
 
   <!-- Scripts -->

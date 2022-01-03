@@ -5,12 +5,12 @@ User = get_user_model()
 
 
 class EmployeeRegistrationForm(forms.ModelForm):
-    username = forms.CharField(max_length=10)
-    first_name = forms.CharField(label="First Name")
-    last_name = forms.CharField(label="Last Name")
-    email = forms.EmailField(label='Email address')
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(max_length=10,label='identificacion')
+    first_name = forms.CharField(label="Primer Nombre")
+    last_name = forms.CharField(label="Apellidos")
+    email = forms.EmailField(label='Correo')
+    password = forms.CharField(widget=forms.PasswordInput, label='Contraseña')
+    confirm_password = forms.CharField(widget=forms.PasswordInput,label='Confirmar Contraseña')
 
     class Meta:
         model = User

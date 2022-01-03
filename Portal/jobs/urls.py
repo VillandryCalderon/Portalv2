@@ -4,7 +4,7 @@ from .views import *
 from jobs import views
 from django.conf import settings
 from django.conf.urls.static import static
-from infoprofile.views import formularioUserView
+#from infoprofile.views import formularioUserView
 
 app_name = 'jobs'
 
@@ -18,7 +18,12 @@ urlpatterns = [
     path('job-single/<int:id>/', job_single, name='job-single'),
     path('search/', SearchView.as_view(), name='search'),
     path('apply/', apply_job, name='apply'),
+    path('ApplyJobListing/', jobapply_listing, name='ApplyJobListing'),
+   #path('ApplyJobListing/', ApplyJobListing, name='ApplyJobListing'),
+    
 
 
 
 ]
+
+

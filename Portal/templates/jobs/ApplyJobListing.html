@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
 
 {% block content %}
 <body style="background-color:#212d37;">
@@ -11,8 +11,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="mb-5 text-center">
-                        <h1 class="text-white font-weight-bold">Lista de Empleos</h1>
-                        <p>Find your dream jobs in our powerful career website.</p>
+                        <h1 class="text-white font-weight-bold">Lista de Aplicantes</h1>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
                     <div class="row">
                         <div class="col-lg-12">
-                          
+                           
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Lista de Empleos vigentes</h4>
@@ -47,17 +47,22 @@
                                                     <tr>
                                                         <th>Nombre</th>
                                                         <th>Correo</th>
-                                                        <th>Adjunto</th>
+                                                        <th>File</th>                                               
                                                     </tr>
                                                 </thead>
-                                                
                                                 {% for q in query %}
                                                 <tbody style="color:black;">
     
                                                     <tr style="color: black;">
-                                                        <td>{{ q.name }}</td>                                                     </td>
+                                                        <td><a style="color:blue;"
+                                                                href="{% url 'jobs:job-single' q.id %}">{{ q.name }}</a>
+                                                        </td>
                                                         <td>{{q.email}}</td>
-                                                        <td>{{q.file}}</td>                                                      
+                                                        <td><a style="color:blue;"
+                                                            href="{{q.file}}">{{ q.file }}</a>
+                                                
+                                                        </td>
+                                                        <td><a href="{% url 'jobs:job-single' q.id %}"></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -78,9 +83,8 @@
                                     {% if query.has_previous %}
                                     <a href="?page={{ query.previous_page_number }}" class="prev">Previous</a>
                                     {% endif %}
-                                    <div class="d-inline-block">
-                                        Page <a href="#" class="active">{{ query.number }}</a> of {{
-                                        query.paginator.num_pages }}
+                                    <div class="d-inline-block" style=color:white;>
+                                        Page <a href="#" class="active">{{ query.number }}</a> of {{query.paginator.num_pages }}
                                     </div>
                                     {% if query.has_next %}
                                     <a href="?page={{ query.next_page_number }}" class="next">Next</a>
@@ -88,19 +92,8 @@
                                 </div>
                             </div>
                         </div>
-    
-    
-    
-    
-    
-                    
-    </section>
-
-
-
-
-</body>
-
+                    </section>
+                </body>
 {% endblock %}
 
 

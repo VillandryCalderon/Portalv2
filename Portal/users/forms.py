@@ -1,5 +1,5 @@
 from django import forms
-from infoprofile.models import UserProfile
+from users.models import UserProfile
 from django.contrib.auth.models import User,Group
 
 from companies.models import Organization
@@ -19,3 +19,12 @@ class FormularioUser(forms.ModelForm):
         
         
   
+
+
+        
+        
+        
+
+        
+        
+        

@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .models import Company
 from .models import Organization
 from . import serializers
-from infoprofile.permissions import IsOwnerOrReadOnly
+#from infoprofile.permissions import IsOwnerOrReadOnly
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
