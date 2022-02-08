@@ -45,4 +45,7 @@ class JobApplyForm(forms.ModelForm):
             "name": "Full Name"
 
         }
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['job_Id'].queryset = job_Id.objects.all()
 

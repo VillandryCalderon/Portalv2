@@ -45,17 +45,20 @@
                                                 
                                                 <thead>
                                                     <tr>
+                                                        <th>Empleo</th>
                                                         <th>Nombre</th>
                                                         <th>Correo</th>
                                                         <th>File</th>                                               
                                                     </tr>
                                                 </thead>
-                                                {% for q in query %}
+                                                {% for q in query %} 
                                                 <tbody style="color:black;">
-    
                                                     <tr style="color: black;">
                                                         <td><a style="color:blue;"
-                                                                href="{% url 'jobs:job-single' q.id %}">{{ q.name }}</a>
+                                                            href="">{{ q.job_Id }}</a></td>
+                                                    </td>
+                                                        <td><a style="color:blue;"
+                                                                href="">{{ q.name }}</a>
                                                         </td>
                                                         <td>{{q.email}}</td>
                                                         <td><a style="color:blue;"

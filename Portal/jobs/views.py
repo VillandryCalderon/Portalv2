@@ -110,6 +110,7 @@ def apply_job(request):
         return redirect('/')
     context = {
         'form': form,
+        
 
     }
     return render(request, "jobs/job_apply.html", context)

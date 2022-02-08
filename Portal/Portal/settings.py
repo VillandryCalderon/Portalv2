@@ -89,10 +89,18 @@ WSGI_APPLICATION = 'Portal.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+ 'default': {
+       # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       # 'NAME': 'PortalJob',
+       # 'USER':'postgres',
+       # 'PASSWORD':'DB2021',
+       # 'HOST':'127.0.0.1',
+       # 'DATABASE_PORT':'5432',   
+    # conecxion a SQLLite
+   # 'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        }
 }
 
 
