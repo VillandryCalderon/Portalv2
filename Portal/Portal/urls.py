@@ -43,9 +43,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('jobs/', include('jobs.urls', namespace='jobs')),
+     path('users/', include('users.urls', namespace='users')),
     path('accounts/', include('accounts.urls', namespace='accounts')),    
+    path('QRPersonalizable/', include('QRPersonalizable.urls', namespace='QRPersonalizable')),  
+    
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    
     
     path('RegistrarUsuario/', formularioUserView.index,name='RegistrarUsuario'),
     path('guardarusuario/', formularioUserView.index,name='guardarusuario'),    
@@ -53,5 +57,6 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
+  
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

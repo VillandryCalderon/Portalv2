@@ -13,8 +13,8 @@
                     <center><h1 class="lead">Aplicar al puesto {{q.title}} </h1></center>
                         <form action="" method="POST" class="" enctype="multipart/form-data">{% csrf_token %}
                             <div class="form-group">
-                                <label><strong>Empleo</strong></label>                                            
-                                <input type="text" class="form-control" placeholder=""{{form.job_Id}}                     
+                                <label><strong>Seleccione el Empleo</strong></label>                                            
+                                <select type="text" class="form-control" placeholder="Empleos"{{form.job_Id}}</select>                  
                             </div>
 
              

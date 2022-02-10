@@ -79,8 +79,8 @@
                 {% endif %}   
 
                 {% if user.is_active %}
-                <li class="nav-item {% if request.path == 'infoprofile/' %}active{% endif %}">
-                  <a class="nav-link" href="">Perfil</a>
+                <li class="nav-item {% if request.path == 'userprofile/' %}active{% endif %}">
+                  <a class="nav-link" href="{% url 'users:userprofile' %}">Perfil</a>
                 </li>
                 {% endif %}
 
