@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-07xlen*(3a=f*o*8__mzvw1e)u1(l8xgj6tsj)%ac9@(+7@1=u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  #Esto se cambia a False para pasar a producción
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #Esto ALLOWED_HOSTS = ["https://IstmoCenter.cr"] aqui se pone el dominio de la empresa
 
 
 # Application definition
@@ -91,16 +91,16 @@ WSGI_APPLICATION = 'Portal.wsgi.application'
 
 DATABASES = {
  'default': {
-       # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       # 'NAME': 'PortalJob',
-       # 'USER':'postgres',
-       # 'PASSWORD':'DB2021',
-       # 'HOST':'127.0.0.1',
-       # 'DATABASE_PORT':'5432',   
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'PortalJob',
+        'USER':'postgres',
+        'PASSWORD':'DB2021',
+        'HOST':'127.0.0.1',
+        'DATABASE_PORT':'5432',   
     # conecxion a SQLLite
    # 'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
         }
 }
 
