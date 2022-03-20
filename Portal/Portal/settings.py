@@ -162,3 +162,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#-----------------Configuracion recuperar password por email
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'villacalderon102@gmail.com'
+EMAIL_HOST_PASSWORD = 'Zeko102@'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
