@@ -1,0 +1,1729 @@
+{% extends 'base.html' %}
+{% block ttile %}Edit Profile {% endblock %}
+
+{% load static %}
+
+{% block content %}
+           
+            <div class="content">
+
+            </div>
+
+
+                <!-- Content -->
+                <div id="content" class="colM">
+
+            
+                        <form enctype="multipart/form-data" method="post" id="userprofile_form" novalidate=""><input
+                                type="hidden" name="csrfmiddlewaretoken"
+                                value="KBWnXZpLgX9U3Nxr3TBR3pvTSe45m4GigVOYFUweu4VGBOappDNfynEzbFg7LG1q">
+                            <div>
+                              <fieldset class="module aligned ">
+                                   <div class="form-row field-user">
+                                        <div>
+
+
+                                            <label class="required" for="id_user">User:</label>
+
+                                            <div class="related-widget-wrapper">
+                                                <select name="user" required="" id="id_user">
+                                                    <option value="{{user.username}}">{{user.username}}</option>
+                                                </select>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-first_name">
+
+
+                                        <div>
+
+
+                                            <label class="required" for="id_first_name">First name:</label>
+
+                                            <input type="text" name="first_name" value="{{form.get('first_name')}}" class="vTextField"
+                                                maxlength="64" required="" id="id_first_name">{{first_name}}</>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-last_name">
+
+
+                                        <div>
+
+
+                                            <label class="required" for="id_last_name">Last name:</label>
+
+                                            <input type="text" name="last_name" value="Calderon Alvarado"
+                                                class="vTextField" maxlength="64" required="" id="id_last_name">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-birthday">
+
+
+                                        <div>
+
+
+                                            <label class="required" for="id_birthday">Fecha Nacimiento:</label>
+
+                                            <input type="text" name="birthday" value="2022-03-22" class="vDateField"
+                                                size="10" required="" id="id_birthday"><span
+                                                class="datetimeshortcuts">&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                                                    href="#" id="calendarlink0"><span class="date-icon"
+                                                        title="Choose a Date"></span></a></span>
+
+
+
+                                            <br><span class="timezonewarning">Note: You are 6 hours behind server
+                                                time.</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-email">
+
+
+                                        <div>
+
+
+                                            <label class="required" for="id_email">Email:</label>
+
+                                            <input type="email" name="email"
+                                                value="<django.db.models.query_utils.DeferredAttribute object at 0x0000017779265D90>"
+                                                class="vTextField" maxlength="254" required="" id="id_email">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-phone">
+
+
+                                        <div>
+
+
+                                            <label for="id_phone">Telefono:</label>
+
+                                            <input type="text" name="phone" value="86549929" class="vTextField"
+                                                maxlength="16" id="id_phone">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-location">
+
+
+                                        <div>
+
+
+                                            <label for="id_location">Location:</label>
+
+                                            <input type="text" name="location" value="San Pedro" class="vTextField"
+                                                maxlength="120" id="id_location">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-coordinates">
+
+
+                                        <div>
+
+
+                                            <label for="id_coordinates">Coordinates:</label>
+
+                                            <input type="text" name="coordinates"
+                                                value="300  norte de el  mall san pedro" class="vTextField"
+                                                maxlength="64" id="id_coordinates">
+
+
+
+                                            <div class="help">Distrito,cantón</div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-salary_min">
+
+
+                                        <div>
+
+
+                                            <label for="id_salary_min">Salario Minimo:</label>
+
+                                            <input type="number" name="salary_min" value="1234566" class="vIntegerField"
+                                                id="id_salary_min">
+
+
+
+                                            <div class="help">₡</div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-job_type">
+
+
+                                        <div>
+
+
+                                            <label for="id_job_type">Preferencia de empleo:</label>
+
+                                            <select name="job_type" id="id_job_type">
+                                                <option value="">---------</option>
+
+                                                <option value="En sitio">En sitio</option>
+
+                                                <option value="Remoto" selected="">Remoto</option>
+
+                                                <option value="En sitio o Remoto">En sitio o Remoto</option>
+
+                                            </select>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-type_of_contract">
+
+
+                                        <div>
+
+
+                                            <label for="id_type_of_contract">Tipo de Contrato:</label>
+
+                                            <select name="type_of_contract" id="id_type_of_contract">
+                                                <option value="">---------</option>
+
+                                                <option value="Contrato">Contrato</option>
+
+                                                <option value="Permanente">Permanente</option>
+
+                                                <option value="Contrato o Permanente" selected="">Contrato o Permanente
+                                                </option>
+
+                                            </select>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row field-Createresumen">
+
+
+                                        <div>
+
+
+                                            <label for="id_Createresumen">Cargar Curriculum:</label>
+
+                                            <input type="file" name="Createresumen" id="id_Createresumen">
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+
+
+
+
+
+
+
+
+
+                                <div class="js-inline-admin-formset inline-group" id="user_education-group"
+                                    data-inline-type="tabular"
+                                    data-inline-formset="{&quot;name&quot;: &quot;#user_education&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;user_education&quot;, &quot;addText&quot;: &quot;Add another Education&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                                    <div class="tabular inline-related ">
+                                        <input type="hidden" name="user_education-TOTAL_FORMS" value="0"
+                                            id="id_user_education-TOTAL_FORMS" autocomplete="off"><input type="hidden"
+                                            name="user_education-INITIAL_FORMS" value="0"
+                                            id="id_user_education-INITIAL_FORMS"><input type="hidden"
+                                            name="user_education-MIN_NUM_FORMS" value="0"
+                                            id="id_user_education-MIN_NUM_FORMS" autocomplete="off"><input type="hidden"
+                                            name="user_education-MAX_NUM_FORMS" value="1000"
+                                            id="id_user_education-MAX_NUM_FORMS" autocomplete="off">
+                                        <fieldset class="module ">
+
+                                            <h2>Education</h2>
+
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="original"></th>
+
+
+                                                        <th class="column-institution required">Institution
+
+                                                        </th>
+
+
+
+                                                        <th class="column-title required">Grado
+
+                                                        </th>
+
+
+
+                                                        <th class="column-start_date required">Fecha Inicio
+
+                                                        </th>
+
+
+
+                                                        <th class="column-end_date">Fecha Finalizacion
+
+                                                        </th>
+
+
+
+                                                        <th class="column-in_progress">En Progreso
+
+                                                        </th>
+
+
+
+                                                        <th class="column-description required">Description
+
+                                                        </th>
+
+
+                                                        <th>Delete?</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+                                                    <tr class="form-row  empty-form" id="user_education-empty">
+                                                        <td class="original">
+
+                                                            <input type="hidden" name="user_education-__prefix__-id"
+                                                                id="id_user_education-__prefix__-id">
+                                                            <input type="hidden"
+                                                                name="user_education-__prefix__-userprofile" value="11"
+                                                                id="id_user_education-__prefix__-userprofile">
+
+                                                        </td>
+
+
+
+
+                                                        <td class="field-institution">
+
+
+                                                            <div class="related-widget-wrapper">
+                                                                <select name="user_education-__prefix__-institution"
+                                                                    id="id_user_education-__prefix__-institution">
+                                                                    <option value="" selected="">---------</option>
+
+                                                                    <option value="1">Universidad Hispanoamericana
+                                                                    </option>
+
+                                                                </select>
+
+                                                                <a class="related-widget-wrapper-link change-related"
+                                                                    id="change_id_user_education-__prefix__-institution"
+                                                                    data-href-template="/admin/education/institution/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                                    title="Change selected University or institution"><img
+                                                                        src="/static/admin/img/icon-changelink.svg"
+                                                                        alt="Change"></a><a
+                                                                    class="related-widget-wrapper-link add-related"
+                                                                    id="add_id_user_education-__prefix__-institution"
+                                                                    href="/admin/education/institution/add/?_to_field=id&amp;_popup=1"
+                                                                    title="Add another University or institution"><img
+                                                                        src="/static/admin/img/icon-addlink.svg"
+                                                                        alt="Add"></a>
+
+                                                            </div>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-title">
+
+
+                                                            <input type="text" name="user_education-__prefix__-title"
+                                                                class="vTextField" maxlength="64"
+                                                                id="id_user_education-__prefix__-title">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-start_date">
+
+
+                                                            <input type="text"
+                                                                name="user_education-__prefix__-start_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_user_education-__prefix__-start_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink1"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-end_date">
+
+
+                                                            <input type="text" name="user_education-__prefix__-end_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_user_education-__prefix__-end_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink2"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-in_progress">
+
+
+                                                            <input type="checkbox"
+                                                                name="user_education-__prefix__-in_progress"
+                                                                id="id_user_education-__prefix__-in_progress">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-description">
+
+
+                                                            <textarea name="user_education-__prefix__-description"
+                                                                cols="40" rows="10" class="vLargeTextField"
+                                                                id="id_user_education-__prefix__-description"></textarea>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="delete"></td>
+
+                                                    </tr>
+
+                                                    <tr class="add-row">
+                                                        <td colspan="8"><a href="#">Add another Education</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="js-inline-admin-formset inline-group" id="usercertification_set-group"
+                                    data-inline-type="tabular"
+                                    data-inline-formset="{&quot;name&quot;: &quot;#usercertification_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;usercertification_set&quot;, &quot;addText&quot;: &quot;Add another Certificaci\u00f3nes&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                                    <div class="tabular inline-related ">
+                                        <input type="hidden" name="usercertification_set-TOTAL_FORMS" value="0"
+                                            id="id_usercertification_set-TOTAL_FORMS" autocomplete="off"><input
+                                            type="hidden" name="usercertification_set-INITIAL_FORMS" value="0"
+                                            id="id_usercertification_set-INITIAL_FORMS"><input type="hidden"
+                                            name="usercertification_set-MIN_NUM_FORMS" value="0"
+                                            id="id_usercertification_set-MIN_NUM_FORMS" autocomplete="off"><input
+                                            type="hidden" name="usercertification_set-MAX_NUM_FORMS" value="1000"
+                                            id="id_usercertification_set-MAX_NUM_FORMS" autocomplete="off">
+                                        <fieldset class="module ">
+
+                                            <h2>Certificaciónes</h2>
+
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="original"></th>
+
+
+                                                        <th class="column-certification required">Certification
+
+                                                        </th>
+
+
+
+                                                        <th class="column-name required">Certificado
+
+                                                        </th>
+
+
+
+                                                        <th class="column-start_date required">Fecha Inicio
+
+                                                        </th>
+
+
+
+                                                        <th class="column-end_date">Fecha Finalizacion
+
+                                                        </th>
+
+
+
+                                                        <th class="column-in_progress">En Progreso
+
+                                                        </th>
+
+
+                                                        <th>Delete?</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+                                                    <tr class="form-row  empty-form" id="usercertification_set-empty">
+                                                        <td class="original">
+
+                                                            <input type="hidden"
+                                                                name="usercertification_set-__prefix__-id"
+                                                                id="id_usercertification_set-__prefix__-id">
+                                                            <input type="hidden"
+                                                                name="usercertification_set-__prefix__-userprofile"
+                                                                value="11"
+                                                                id="id_usercertification_set-__prefix__-userprofile">
+
+                                                        </td>
+
+
+
+
+                                                        <td class="field-certification">
+
+
+                                                            <div class="related-widget-wrapper">
+                                                                <select
+                                                                    name="usercertification_set-__prefix__-certification"
+                                                                    id="id_usercertification_set-__prefix__-certification">
+                                                                    <option value="" selected="">---------</option>
+
+                                                                </select>
+
+                                                                <a class="related-widget-wrapper-link change-related"
+                                                                    id="change_id_usercertification_set-__prefix__-certification"
+                                                                    data-href-template="/admin/education/certification/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                                    title="Change selected Certification"><img
+                                                                        src="/static/admin/img/icon-changelink.svg"
+                                                                        alt="Change"></a><a
+                                                                    class="related-widget-wrapper-link add-related"
+                                                                    id="add_id_usercertification_set-__prefix__-certification"
+                                                                    href="/admin/education/certification/add/?_to_field=id&amp;_popup=1"
+                                                                    title="Add another Certification"><img
+                                                                        src="/static/admin/img/icon-addlink.svg"
+                                                                        alt="Add"></a>
+
+                                                            </div>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-name">
+
+
+                                                            <input type="text"
+                                                                name="usercertification_set-__prefix__-name"
+                                                                class="vTextField" maxlength="64"
+                                                                id="id_usercertification_set-__prefix__-name">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-start_date">
+
+
+                                                            <input type="text"
+                                                                name="usercertification_set-__prefix__-start_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_usercertification_set-__prefix__-start_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink3"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-end_date">
+
+
+                                                            <input type="text"
+                                                                name="usercertification_set-__prefix__-end_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_usercertification_set-__prefix__-end_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink4"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-in_progress">
+
+
+                                                            <input type="checkbox"
+                                                                name="usercertification_set-__prefix__-in_progress"
+                                                                id="id_usercertification_set-__prefix__-in_progress">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="delete"></td>
+
+                                                    </tr>
+
+                                                    <tr class="add-row">
+                                                        <td colspan="7"><a href="#">Add another Certificaciónes</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="js-inline-admin-formset inline-group" id="userjob_set-group"
+                                    data-inline-type="tabular"
+                                    data-inline-formset="{&quot;name&quot;: &quot;#userjob_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;userjob_set&quot;, &quot;addText&quot;: &quot;Add another Trabajo&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                                    <div class="tabular inline-related ">
+                                        <input type="hidden" name="userjob_set-TOTAL_FORMS" value="0"
+                                            id="id_userjob_set-TOTAL_FORMS" autocomplete="off"><input type="hidden"
+                                            name="userjob_set-INITIAL_FORMS" value="0"
+                                            id="id_userjob_set-INITIAL_FORMS"><input type="hidden"
+                                            name="userjob_set-MIN_NUM_FORMS" value="0" id="id_userjob_set-MIN_NUM_FORMS"
+                                            autocomplete="off"><input type="hidden" name="userjob_set-MAX_NUM_FORMS"
+                                            value="1000" id="id_userjob_set-MAX_NUM_FORMS" autocomplete="off">
+                                        <fieldset class="module ">
+
+                                            <h2>Trabajos</h2>
+
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="original"></th>
+
+
+                                                        <th class="column-organization required">Organization
+
+                                                        </th>
+
+
+
+                                                        <th class="column-title required">Titulole
+
+                                                        </th>
+
+
+
+                                                        <th class="column-start_date required">Fecha Inicio
+
+                                                        </th>
+
+
+
+                                                        <th class="column-end_date">Fecha Finalizacion
+
+                                                        </th>
+
+
+
+                                                        <th class="column-in_progress">En Progreso
+
+                                                        </th>
+
+
+                                                        <th>Delete?</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+                                                    <tr class="form-row  empty-form" id="userjob_set-empty">
+                                                        <td class="original">
+
+                                                            <input type="hidden" name="userjob_set-__prefix__-id"
+                                                                id="id_userjob_set-__prefix__-id">
+                                                            <input type="hidden"
+                                                                name="userjob_set-__prefix__-userprofile" value="11"
+                                                                id="id_userjob_set-__prefix__-userprofile">
+
+                                                        </td>
+
+
+
+
+                                                        <td class="field-organization">
+
+
+                                                            <div class="related-widget-wrapper">
+                                                                <select name="userjob_set-__prefix__-organization"
+                                                                    id="id_userjob_set-__prefix__-organization">
+                                                                    <option value="" selected="">---------</option>
+
+                                                                </select>
+
+                                                                <a class="related-widget-wrapper-link change-related"
+                                                                    id="change_id_userjob_set-__prefix__-organization"
+                                                                    data-href-template="/admin/companies/organization/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                                    title="Change selected organization"><img
+                                                                        src="/static/admin/img/icon-changelink.svg"
+                                                                        alt="Change"></a><a
+                                                                    class="related-widget-wrapper-link add-related"
+                                                                    id="add_id_userjob_set-__prefix__-organization"
+                                                                    href="/admin/companies/organization/add/?_to_field=id&amp;_popup=1"
+                                                                    title="Add another organization"><img
+                                                                        src="/static/admin/img/icon-addlink.svg"
+                                                                        alt="Add"></a>
+
+                                                            </div>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-title">
+
+
+                                                            <input type="text" name="userjob_set-__prefix__-title"
+                                                                class="vTextField" maxlength="64"
+                                                                id="id_userjob_set-__prefix__-title">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-start_date">
+
+
+                                                            <input type="text" name="userjob_set-__prefix__-start_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_userjob_set-__prefix__-start_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink5"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-end_date">
+
+
+                                                            <input type="text" name="userjob_set-__prefix__-end_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_userjob_set-__prefix__-end_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink6"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-in_progress">
+
+
+                                                            <input type="checkbox"
+                                                                name="userjob_set-__prefix__-in_progress"
+                                                                id="id_userjob_set-__prefix__-in_progress">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="delete"></td>
+
+                                                    </tr>
+
+                                                    <tr class="add-row">
+                                                        <td colspan="7"><a href="#">Add another Trabajo</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="js-inline-admin-formset inline-group" id="userurl_set-group"
+                                    data-inline-type="tabular"
+                                    data-inline-formset="{&quot;name&quot;: &quot;#userurl_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;userurl_set&quot;, &quot;addText&quot;: &quot;Add another User Url&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                                    <div class="tabular inline-related ">
+                                        <input type="hidden" name="userurl_set-TOTAL_FORMS" value="0"
+                                            id="id_userurl_set-TOTAL_FORMS" autocomplete="off"><input type="hidden"
+                                            name="userurl_set-INITIAL_FORMS" value="0"
+                                            id="id_userurl_set-INITIAL_FORMS"><input type="hidden"
+                                            name="userurl_set-MIN_NUM_FORMS" value="0" id="id_userurl_set-MIN_NUM_FORMS"
+                                            autocomplete="off"><input type="hidden" name="userurl_set-MAX_NUM_FORMS"
+                                            value="1000" id="id_userurl_set-MAX_NUM_FORMS" autocomplete="off">
+                                        <fieldset class="module ">
+
+                                            <h2>User Urls</h2>
+
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="original"></th>
+
+
+                                                        <th class="column-network required">Network
+
+                                                        </th>
+
+
+
+                                                        <th class="column-url required">Profile url or Username
+
+                                                        </th>
+
+
+                                                        <th>Delete?</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+                                                    <tr class="form-row  empty-form" id="userurl_set-empty">
+                                                        <td class="original">
+
+                                                            <input type="hidden" name="userurl_set-__prefix__-id"
+                                                                id="id_userurl_set-__prefix__-id">
+                                                            <input type="hidden"
+                                                                name="userurl_set-__prefix__-userprofile" value="11"
+                                                                id="id_userurl_set-__prefix__-userprofile">
+
+                                                        </td>
+
+
+
+
+                                                        <td class="field-network">
+
+
+                                                            <select name="userurl_set-__prefix__-network"
+                                                                id="id_userurl_set-__prefix__-network">
+                                                                <option value="" selected="">---------</option>
+
+                                                                <option value="Web">Web</option>
+
+                                                                <option value="Github">Github</option>
+
+                                                                <option value="Bitbucket">Bitbucket</option>
+
+                                                                <option value="Gitlab">Gitlab</option>
+
+                                                                <option value="Twitter">Twitter</option>
+
+                                                                <option value="StackOverflow">StackOverflow</option>
+
+                                                                <option value="Linkedin">Linkedin</option>
+
+                                                                <option value="Youtube">Youtube</option>
+
+                                                                <option value="Facebook">Facebook</option>
+
+                                                            </select>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-url">
+
+
+                                                            <input type="text" name="userurl_set-__prefix__-url"
+                                                                class="vTextField" maxlength="64"
+                                                                id="id_userurl_set-__prefix__-url">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="delete"></td>
+
+                                                    </tr>
+
+                                                    <tr class="add-row">
+                                                        <td colspan="4"><a href="#">Add another User Url</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="js-inline-admin-formset inline-group" id="userproject_set-group"
+                                    data-inline-type="tabular"
+                                    data-inline-formset="{&quot;name&quot;: &quot;#userproject_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;userproject_set&quot;, &quot;addText&quot;: &quot;Add another User Project&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                                    <div class="tabular inline-related last-related">
+                                        <input type="hidden" name="userproject_set-TOTAL_FORMS" value="0"
+                                            id="id_userproject_set-TOTAL_FORMS" autocomplete="off"><input type="hidden"
+                                            name="userproject_set-INITIAL_FORMS" value="0"
+                                            id="id_userproject_set-INITIAL_FORMS"><input type="hidden"
+                                            name="userproject_set-MIN_NUM_FORMS" value="0"
+                                            id="id_userproject_set-MIN_NUM_FORMS" autocomplete="off"><input
+                                            type="hidden" name="userproject_set-MAX_NUM_FORMS" value="1000"
+                                            id="id_userproject_set-MAX_NUM_FORMS" autocomplete="off">
+                                        <fieldset class="module ">
+
+                                            <h2>User Projects</h2>
+
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="original"></th>
+
+
+                                                        <th class="column-title required">Title or resume
+
+                                                        </th>
+
+
+
+                                                        <th class="column-url">Online URL, app store link
+
+                                                        </th>
+
+
+
+                                                        <th class="column-logo">Logo
+
+                                                        </th>
+
+
+
+                                                        <th class="column-description required">Description
+                                                            <img src="/static/admin/img/icon-unknown.svg"
+                                                                class="help help-tooltip" width="10" height="10"
+                                                                alt="(Describe the software or feature and what your contribution was.)"
+                                                                title="Describe the software or feature and what your contribution was.">
+                                                        </th>
+
+
+
+                                                        <th class="column-release_date">Release date
+
+                                                        </th>
+
+
+                                                        <th>Delete?</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+
+                                                    <tr class="form-row  empty-form" id="userproject_set-empty">
+                                                        <td class="original">
+
+                                                            <input type="hidden" name="userproject_set-__prefix__-id"
+                                                                id="id_userproject_set-__prefix__-id">
+                                                            <input type="hidden"
+                                                                name="userproject_set-__prefix__-userprofile" value="11"
+                                                                id="id_userproject_set-__prefix__-userprofile">
+
+                                                        </td>
+
+
+
+
+                                                        <td class="field-title">
+
+
+                                                            <input type="text" name="userproject_set-__prefix__-title"
+                                                                class="vTextField" maxlength="128"
+                                                                id="id_userproject_set-__prefix__-title">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-url">
+
+
+                                                            <input type="text" name="userproject_set-__prefix__-url"
+                                                                class="vTextField" maxlength="256"
+                                                                id="id_userproject_set-__prefix__-url">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-logo">
+
+
+                                                            <input type="file" name="userproject_set-__prefix__-logo"
+                                                                accept="image/*"
+                                                                id="id_userproject_set-__prefix__-logo">
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-description">
+
+
+                                                            <textarea name="userproject_set-__prefix__-description"
+                                                                cols="40" rows="10" class="vLargeTextField"
+                                                                id="id_userproject_set-__prefix__-description"></textarea>
+
+                                                        </td>
+
+
+
+
+
+                                                        <td class="field-release_date">
+
+
+                                                            <input type="text"
+                                                                name="userproject_set-__prefix__-release_date"
+                                                                class="vDateField" size="10"
+                                                                id="id_userproject_set-__prefix__-release_date"><span
+                                                                class="datetimeshortcuts">&nbsp;<a
+                                                                    href="#">Today</a>&nbsp;|&nbsp;<a href="#"
+                                                                    id="calendarlink7"><span class="date-icon"
+                                                                        title="Choose a Date"></span></a></span>
+
+                                                            <br><span class="timezonewarning">Note: You are 6 hours
+                                                                behind server time.</span>
+                                                        </td>
+
+
+
+
+
+                                                        <td class="delete"></td>
+
+                                                    </tr>
+
+                                                    <tr class="add-row">
+                                                        <td colspan="7"><a href="#">Add another User Project</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <div class="submit-row">
+
+                                    <input type="submit" value="Save" class="default" name="_save">
+
+
+                                    <p class="deletelink-box"><a href="/admin/users/userprofile/11/delete/"
+                                            class="deletelink">Delete</a></p>
+
+
+                                    <input type="submit" value="Save and add another" name="_addanother">
+                                    <input type="submit" value="Save and continue editing" name="_continue">
+
+
+                                </div>
+
+
+
+                                <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js"
+                                    async="">
+                                    </script>
+
+
+
+
+                                <script id="django-admin-prepopulated-fields-constants"
+                                    src="/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+                                    </script>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <br class="clear">
+                </div>
+                <!-- END Content -->
+                <div id="footer"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END Container -->
+
+
+    <div class="calendarbox module" id="calendarbox0" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin0" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox1" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin1" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox2" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin2" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox3" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin3" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox4" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin4" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox5" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin5" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox6" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin6" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+    <div class="calendarbox module" id="calendarbox7" style="display: none; position: absolute;">
+        <div><a href="#" class="calendarnav-previous">&lt;</a><a href="#" class="calendarnav-next">&gt;</a></div>
+        <div id="calendarin7" class="calendar">
+            <table>
+                <caption>March 2022</caption>
+                <tbody>
+                    <tr>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
+                    </tr>
+                    <tr>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                        <td class=""><a href="#">1</a></td>
+                        <td class=""><a href="#">2</a></td>
+                        <td class=""><a href="#">3</a></td>
+                        <td class=""><a href="#">4</a></td>
+                        <td class=""><a href="#">5</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">6</a></td>
+                        <td class=""><a href="#">7</a></td>
+                        <td class=""><a href="#">8</a></td>
+                        <td class=""><a href="#">9</a></td>
+                        <td class=""><a href="#">10</a></td>
+                        <td class=""><a href="#">11</a></td>
+                        <td class=""><a href="#">12</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">13</a></td>
+                        <td class=""><a href="#">14</a></td>
+                        <td class=""><a href="#">15</a></td>
+                        <td class=""><a href="#">16</a></td>
+                        <td class=""><a href="#">17</a></td>
+                        <td class=""><a href="#">18</a></td>
+                        <td class=""><a href="#">19</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">20</a></td>
+                        <td class=""><a href="#">21</a></td>
+                        <td class=""><a href="#">22</a></td>
+                        <td class=""><a href="#">23</a></td>
+                        <td class=""><a href="#">24</a></td>
+                        <td class="today"><a href="#">25</a></td>
+                        <td class=""><a href="#">26</a></td>
+                    </tr>
+                    <tr>
+                        <td class=""><a href="#">27</a></td>
+                        <td class=""><a href="#">28</a></td>
+                        <td class=""><a href="#">29</a></td>
+                        <td class=""><a href="#">30</a></td>
+                        <td class=""><a href="#">31</a></td>
+                        <td class="nonday"> </td>
+                        <td class="nonday"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="calendar-shortcuts"><a href="#">Yesterday</a>&nbsp;|&nbsp;<a href="#">Today</a>&nbsp;|&nbsp;<a
+                href="#">Tomorrow</a></div>
+        <p class="calendar-cancel"><a href="#">Cancel</a></p>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<div class="content-body">
+</div>
+<div class="form-group">
+    <form method="post" action="#">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+
+        {{form.user }}
+
+        {% endif %}
+
+
+        {{form.as_p}}
+        <button class="btn btn-primary">Guardar</button>
+    </form>
+
+
+    {% endblock %}

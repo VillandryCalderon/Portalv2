@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+</head>
+<body>
+    <h1>Hola desde el  listado de Usuarios</h1>
+    {% if object_list %}
+        <table border="2">
+            <thead>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+            </thead>
+            <tbody>
+                {% for lst in object_list %}
+                <tr>
+                    <td>{{lst.first_name}}</td>
+                    <td>{{lst.last_name}}</td>
+                    <td>{{lst.email}}</td>
+                    <td>{{lst.phone}}</td>
+                    <td>{{lst.Createresumen}}</td>
+                    <a href="{% url 'users-userprofile-update' lst.id %}">Editar</a>
+                    <a href="{% url 'users-userprofile-logic-delete' lst.id %}">Eliminar</a>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    {% else %} 
+    <h1>No existen datos registrados</h1>
+    {% endif %}
+</body>
+</html>
