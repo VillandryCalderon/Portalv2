@@ -7,6 +7,7 @@ admin.site.register(JobListing)
 admin.site.register(ApplyJob)
 
 
+
 class JobListingAdmin(admin.ModelAdmin):
     search_fields =('title'), 
     list_display = ('title', 'user','category'),

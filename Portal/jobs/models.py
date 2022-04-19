@@ -11,6 +11,11 @@ from education.models import Certification
 from education.models import Institution
 
 
+from django.contrib.postgres.fields import IntegerRangeField
+from django.utils.translation import ugettext as _
+from companies.models import Company
+
+
 
 
 class Contact(models.Model):

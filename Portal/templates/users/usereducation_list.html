@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+</head>
+<body>
+    <h1>Hola desde el  listado de Usuarios</h1>
+    {% if object_list %}
+        <table border="2">
+            <thead>
+                <th>institution</th>
+                <th>Grado</th>
+                <th>end_date</th>
+            </thead>
+            <tbody>
+                {% for lst in object_list %}
+                <tr>
+                    <td>{{lst.institution}}</td>
+                    <td>{{lst.title}}</td>
+                    <td>{{lst.end_date}}</td>
+                   
+                    <a href="{% url 'users-usereducation-update' lst.id %}">Editar</a>
+                    <a href="{% url 'users-usereducation-logic-delete' lst.id %}">Eliminar</a>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    {% else %} 
+    <h1>No existen datos registrados</h1>
+    {% endif %}
+</body>
+</html>

@@ -78,17 +78,19 @@
                 </li>
                 {% endif %}   
 
-                {% if user.is_active %}
+                <!--{% if user.is_active %} 
                 <li class="nav-item {% if request.path == 'userprofile/' %}active{% endif %}">
-                  <a class="nav-link" href="{% url 'users:userprofile' %}">Perfil</a>
+                  <a class="nav-link" href="{% url 'users-userprofile-detail' user.id %}">Perfil</a>
                 </li>
-                {% endif %}
+                {% endif %}-->
 
                 {% if user.is_active %}
                 <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
-                  <a class="nav-link" href="">  {{user.first_name}} {{user.last_name}} </a>
+                  <a class="nav-link" href="{% url 'users-userprofile-detail' user.id %}">{{user.first_name}} {{user.last_name}} </a>
                 </li>
                 {% else %}
+               
+
                 <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">
                   <a class="nav-link" href="{% url 'accounts:login' %}">Iniciar Sesion</a>
                 </li>
