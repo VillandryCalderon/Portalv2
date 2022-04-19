@@ -1,3 +1,4 @@
+from venv import create
 from django.db import models
 from automatic_crud.models import BaseModel
 from django.contrib.auth.models import User
@@ -7,13 +8,14 @@ from companies.models import Organization
 from . import constants
 # Create your models here.
 
+
 class UserProfile(BaseModel):
      user = models.OneToOneField(User,on_delete=models.CASCADE)
      first_name = models.CharField(max_length=64)
      last_name = models.CharField(max_length=64)
      birthday = models.DateField(verbose_name='Fecha Nacimiento')    
      email = models.EmailField()
-     phone = models.CharField(('Telefono'), max_length=16, blank=True)
+     phone = models.CharField(verbose_name='Telefono', max_length=16, blank=True)
      location = models.CharField(max_length=120, blank=True)
      coordinates = models.CharField(max_length=64, help_text='Distrito,cantón', blank=True)
     
@@ -21,23 +23,31 @@ class UserProfile(BaseModel):
      job_type = models.CharField('Preferencia de empleo', max_length=32, choices=constants.JOB_TYPE,blank=True)
      type_of_contract = models.CharField('Tipo de Contrato', max_length=32,choices=constants.TYPE_OF_CONTRACT, blank=True)
      Createresumen=models.FileField(upload_to='Resumenpostulantes',verbose_name="Cargar Curriculum",blank=True,null=True)
+     
+     login_required = True
+     permission_required = ()
+     model_permissions = True
+     
     
      class Meta:
             verbose_name = ('User_Profile')
             verbose_name_plural = ('User_Profile')
 
-     def __str__(self):
-         return self.first_name
-
+     def __all__(self):
+         
+         return self.UserProfile.__all__ 
 
 class UserEducation(BaseModel):
-    userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_education')
+    userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name='user_Education')
     institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
     title = models.CharField(('Grado'), max_length=64)
     start_date = models.DateField(auto_now_add=True,verbose_name='Fecha Inicio')
     end_date = models.DateField(auto_now_add=True,verbose_name='Fecha Finalizacion', blank=True, null=True)
     in_progress = models.BooleanField(default=False,verbose_name='En Progreso')
     description = models.TextField()
+    
+    
+    exclude_fields = ['start_date','end_date','description','model_state']
 
     class Meta:
         verbose_name = ('Education')
@@ -45,7 +55,7 @@ class UserEducation(BaseModel):
         ordering = ('-start_date', '-end_date')
 
     def __str__(self):
-        return self.title
+        return self.UserEducation.__all__
  
  
 class UserCertification(BaseModel):

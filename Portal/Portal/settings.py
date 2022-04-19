@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'automatic_crud',
     'users',
     'accounts',
     'jobs',
@@ -92,7 +93,7 @@ WSGI_APPLICATION = 'Portal.wsgi.application'
 DATABASES = {
  'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'PortalJob',
+        'NAME': 'PortalJob2022',
         'USER':'postgres',
         'PASSWORD':'DB2021',
         'HOST':'127.0.0.1',

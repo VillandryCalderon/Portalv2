@@ -1,5 +1,9 @@
 from django.contrib import admin
+from .models import *
 from . import models
+
+
+# Register your models here.
 
 
 class UserEducationInline(admin.TabularInline):
@@ -27,7 +31,10 @@ class UserProjectInline(admin.TabularInline):
     extra = 0
 
 
+
+
+
 @admin.register(models.UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'first_name', 'last_name')
+    list_display = ('user', 'first_name', 'last_name','email','phone','Createresumen')
     inlines = [UserEducationInline, UserCertificationInline, UserJobInline, UserURLInline, UserProjectInline]
