@@ -78,11 +78,7 @@
                 </li>
                 {% endif %}   
 
-                <!--{% if user.is_active %} 
-                <li class="nav-item {% if request.path == 'userprofile/' %}active{% endif %}">
-                  <a class="nav-link" href="{% url 'users-userprofile-detail' user.id %}">Perfil</a>
-                </li>
-                {% endif %}-->
+              
 
                 {% if user.is_active %}
                 <li class="nav-item {% if request.path == 'login/' %}active{% endif %}">

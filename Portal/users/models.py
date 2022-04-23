@@ -32,10 +32,10 @@ class UserProfile(BaseModel):
      class Meta:
             verbose_name = ('User_Profile')
             verbose_name_plural = ('User_Profile')
-
-     def __all__(self):
+            
+            def __all__(self):
          
-         return self.UserProfile.__all__ 
+             return self.user.__all__ 
 
 class UserEducation(BaseModel):
     userprofile = models.ForeignKey(UserProfile,on_delete=models.CASCADE, related_name='user_Education')
@@ -52,10 +52,10 @@ class UserEducation(BaseModel):
     class Meta:
         verbose_name = ('Education')
         verbose_name_plural = ('Education')
-        ordering = ('-start_date', '-end_date')
+        ordering =  ('-start_date', '-end_date')
 
     def __str__(self):
-        return self.UserEducation.__all__
+        return self.title
  
  
 class UserCertification(BaseModel):
@@ -72,7 +72,7 @@ class UserCertification(BaseModel):
          ordering = ('-start_date', '-end_date')
 
         def __str__(self):
-         return self.name
+            return self.name
 
 
 

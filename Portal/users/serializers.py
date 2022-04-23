@@ -6,12 +6,12 @@ from .models import UserEducation
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['pk', 'user', 'first_name', 'last_name', 'birthday', 'email', 'phone', 'location', 'coordinates',
+        fields = [ 'user', 'first_name', 'last_name', 'birthday', 'email', 'phone', 'location', 'coordinates',
                   'salary_min', 'job_type', 'type_of_contract','Createresumen']
         
     def to_representation(self,instance):
         return {
-            'pk': instance.pk,
+            
             'user':instance.user,
             'first_name': instance.first_name,
             'last_name': instance.last_name,

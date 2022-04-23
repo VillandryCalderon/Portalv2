@@ -9,14 +9,12 @@ from jobs.views import home
 from django.contrib.auth.decorators import login_required
 #from users.views import UserEditView
 router = DefaultRouter()
-#router.register(r'userprofile', views.UserProfileViewSet)
+
 app_name = 'users'
 urlpatterns = [
  
     
- # path('userprofile/', UserProfileViewSet, name='userprofile'),
- #   path('edit_profile/', UserEditView.as_view(), name='edit_profile'),   
- #   path('edit2/', UserProfileViewSet , name='edit2'),   
+ 
     
     
 ]
