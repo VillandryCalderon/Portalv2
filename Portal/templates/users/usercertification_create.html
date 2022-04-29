@@ -9,103 +9,56 @@
 <section class="about d-flex align-items-center text-light py-5" id="next-section">
     <div class="container">
       <div class="row d-flex align-items-center">
-        <div class="col-lg-6" data-aos="fade-right">
-          <h1 style="color:#e9790e;">Registrarse</h1>
+        <div class="col-lg-12" data-aos="fade-right">
+          <h1 style="color:#e9790e;">Certificados</h1>
           <div class="row">
-          <div class="col-lg-6 mb-5 mb-lg-0">  
-            <form action="" method="POST" class="form-group" style="color:white;">
-            <input type="hidden" name="csrfmiddlewaretoken" 
-            value="LhttG6pbukb7GJ2NUFpRHjYk4txiHSaqYcdBQ11s76Japg4CFmNXem3i4GsGgRvk">
-
-
-
-                <label style="color:white;"></label><table class="form-group">                                                   
-                   <tbody><tr><th><label for="{{user.userprofile.id}}">Userprofile:</label></th><td><select name="userprofile" required="" id="id_userprofile">
-  <option value="{{user.userprofile.id}}" selected="">---------</option>
-
-  <option value="2">{{user.userprofile.user}}</option>)</option>
-
-</select></td></tr>
-<tr><th><label for="id_certification">Certification:</label></th><td><select name="certification" required="" id="id_certification">
-  <option value="" selected="">---------</option>
-
-  <option value="3">AZ-201-DevOps Develop</option>
-
-  <option value="1">AZ-400-Fundamentals</option>
-
-  <option value="2">AZ-900-Fundamentals</option>
-
-</select></td></tr>
-<tr><th><label for="id_name">Certificado:</label></th><td><input type="text" name="name" maxlength="64" required="" id="id_name"></td></tr>
-<tr><th><label for="id_in_progress">En Progreso:</label></th><td><input type="checkbox" name="in_progress" id="id_in_progress"></td></tr>
-                </tbody></table>               
-                                            
-                <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                    <div class="form-group">
-                        <div class="form-check ml-2">
-                            <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
-                            <label style="color:white;" class="form-check-label" for="basic_checkbox_1">Recordarme</label>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-12">
-                        <input style="background-color: #074d93;" type="submit" value="Registrarme" class="btn btn-primary btn-md text-white">
+          <div class="col-lg-12 mb-6 mb-lg-0">  
+            <form action="" method="POST" enctype="multipart/form-data" id="userprofile_form" >{% csrf_token %}
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="form-group py-2">
+                      <label style="color:white;" class="required"
+                      for="id_userprofile">Usuario:</label>
+                  <select name="userprofile" required="" class="form-control" id="id_userprofile">
+                      <option value="{{user.username}}" selected="">---------</option>
+                      <option value="{{user.id}}">{{user.username}}</option>
+                  </select>
                     </div>
                 </div>
-
-
-            </form>  
-            
-
-
-
-
-
-
-
-            <form  action="" method="POST" class="form-group"style="color:white;">{% csrf_token %}
-                <table class="form-group" >          
 
                 <div class="col-lg-4">
-                                    <div class="form-group py-2">
-                                        <input type="hidden"style="color:white;" name="csrfmiddlewaretoken" value="QKGXpUispwGOaJpEZxyMSRiZRbQqc0uLWO9gUWUZPP5CdrqwAoBjryaAFKSwpGoc">
-                                        <p><label for="{{form.userprofile.id}}">User:</label>
-                                        <select name="user" required="" class="form-control" id="id_user">
-                                            <option value="{{form.userprofile.id}}" selected="">---------</option>
-                                            <option value="{{form.userprofile.id}}">{{user.userprofile.user}}</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-
-
-                   <label style="color:white;">{{ form.as_table }}</label>
-                </table>               
-                                            
-                <div class="form-row d-flex justify-content-between mt-4 mb-2">
-                    <div class="form-group">
-                        <div class="form-check ml-2">
-                            <input class="form-check-input" type="checkbox" id="basic_checkbox_1">
-                            <label style="color:white;" class="form-check-label" for="basic_checkbox_1">Recordarme</label>
-                        </div>
+                    <div class="form-group py-2">
+                        <label  style="color:white;" class="required" for="id_certification">Certificaciones:</label>
+                        <select name="certification" required="" class="form-control" id="id_certification">
+                            <option value="id_certification" selected="{{form.certification}}</option>                            
+                        </select>
                     </div>
-                    
                 </div>
-
+                <div class="col-lg-4">
+                  <div class="form-group py-2">
+                      <label style="color:white;" class="required" for="id_name">Certificado:</label>
+                      <input type="text" name="name" maxlength="64" placeholder="Desarrollo en aplicaciones Web"
+                          class="form-control" required="" id="id_name">
+                  </div>
+              </div>
+              <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                <div class="form-group">
+                    <div class="form-check ml-2">
+                        <input class="form-check-input" type="checkbox" name="in_progress" id="id_in_progress">
+                        <label style="color:white;" class="form-check-label" for="id_in_progress">En Progreso:</label>
+                    </div>
+                </div>
+                </div>
+                </div>
                 <div class="row form-group">
-                    <div class="col-md-12">
-                        <input style="background-color: #074d93;"  type="submit" value="Registrarme" class="btn btn-primary btn-md text-white">
-                    </div>
+                  <div class="col-md-12">
+                      <input style="background-color: #074d93;" type="submit" value="Registrarme" class="btn btn-primary btn-md text-white">
+                  </div>
                 </div>
-
-
+              </div>
             </form>
-
+         
           </div>
         </div>            
         </div>
