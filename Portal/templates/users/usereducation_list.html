@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %} 
+{% load crispy_forms_tags %}
 {% block ttile %}Edit Profile {% endblock %}
 
 {% load static %}
 
 {% block content %}
+
 <body style="background-color:#212d37;">
     <section class="home-section section-hero inner-page overlay bg-image"
-             style="background-image:url('{% static 'images/hero_1.png' %}')"id="home-section">
+        style="background-image:url('{% static 'images/hero_1.png' %}')" id="home-section">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-12">
                     <div class="mb-5 text-center">
-                        <h1 class="text-white font-weight-bold">Experiencia laboral</h1>
+                        <h1 class="text-white font-weight-bold">Educación</h1>
                         <p>Agrega tu informacion Personal</p>
                     </div>
                 </div>
@@ -24,13 +25,21 @@
             <div class="mb-12">
                 <div class="row align-items-start ">
                     <div class="row">
-                        <div class="col-lg-12">                            
-                            <div class="card">                               
-                                <div class="card-body">                                    
-                                    <div class="table-responsive">                                        
-                                        <div class="col-md-12">                                            
-                                            {% if object_list %}                                     
-                                            <table class="table header-border table-responsive-sm">                                                
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Detalle de Educación </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-5 text-right">
+                                        <a href="{% url 'users-usereducation-create'  %}"
+                                            class="btn btn-primary border-width-2 d-none d-lg-inline-block"
+                                            style="background-color:#074d93;">Crear</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <div class="col-md-12">
+                                            {% if object_list %}
+                                            <table class="table header-border table-responsive-sm">
                                                 <thead>
                                                     <tr>
                                                         <th>Organización</th>
@@ -38,7 +47,7 @@
                                                         <th>Fecha Inicio</th>
                                                         <th>Fecha de Finalizacion</th>
                                                     </tr>
-                                                </thead>                                              
+                                                </thead>
                                                 {% for lst in object_list %}
                                                 <tbody style="color:black;">
                                                     <tr>
@@ -47,28 +56,28 @@
                                                         <td>{{lst.start_date}}</td>
                                                         <td>{{lst.end_date}}</td>>
                                                         <td>
-                                                            <a href="{% url 'users-usereducation-update' lst.id %}"style="color:#074d93;">Editar</a></td>
-                                                            <td><a href="{% url 'users-usereducation-logic-delete' lst.id %}" style="color:#074d93;" >Eliminar</a></td>                                                      
+                                                            <a href="{% url 'users-usereducation-update' lst.id %}"
+                                                                style="color:#074d93;">Editar</a>
+                                                        </td>
+                                                        <td><a href="{% url 'users-usereducation-logic-delete' lst.id %}"
+                                                                style="color:#074d93;">Eliminar</a></td>
                                                     </tr>
                                                 </tbody>
                                                 {% endfor %}
                                             </table>
                                             {% else %}
                                             <h1>No existen datos registrados</h1>
-                                            <div class="mb-5 text-right">
-                                                <a href="{% url 'users-usereducation-create'  %}"
-                                                   class="btn btn-primary border-width-2 d-none d-lg-inline-block"style="background-color:#074d93;">Crear</a>
-                                            </div>
                                             {% endif %}
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 </body>
 {% endblock %}
-
-
