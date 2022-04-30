@@ -5,15 +5,13 @@
 
 {% block content %}
 
-
-
 <section class="contact d-flex align-items-center py-5" id="next-section">
     <div class="container">
 
         <div class="row justify-content-center">
             <div class="col-lg-10 mb-5 mb-lg-0">
                 <center style="margin-top: 100px;">
-                    <h1 style="color:white;" class="lead">Agregar Educación</h1>
+                    <h1 style="color:white;" class="lead">Actualizar Informacion Personal</h1>
                 </center>
 
                 <div class="row">
@@ -138,57 +136,26 @@
 
                                 <div class="col-lg-4">
                                     <div class="form-group py-2">
-
-
                                         <div class="form-group">
-
-                                            <label style="color:white;" for="{{user.id_Createresumen}}">Cargar
-                                                Curriculum:</label>
-
-                                            <p style="color:white;" class="file-upload">Currently: <a href="/media/{{form.Createresumen.value}}">{{form.Createresumen.value}}</a>
+                                            <label style="color:white;" for="{{user.id_Createresumen}}">Cargar Curriculum:</label>
+                                            <p style="color:white;" class="file-upload"><a href="/media/{{form.Createresumen.value}}">{{form.Createresumen.value}}</a>
                                                 <span class="clearable-file-input">
-                                                    <input type="checkbox" name="Createresumen-clear"
-                                                        id="Createresumen-clear_id">
-                                                    <label style="color:white;"
-                                                        for="Createresumen-clear_id">Clear</label></span><br>
-                                                Change:
-                                                <input type="file" class="form-control"  name="Createresumen" id="{{user.id_Createresumen}}">
+                                                    <input type="checkbox" name="Createresumen-clear" id="Createresumen-clear_id">
+                                                    <label style="color:white;" for="Createresumen-clear_id">Clear</label>
+                                                </span>
                                             </p>
-
-
-
-
-
-
-
-                                            <!-- <label for="{{form.id_Createresumen }}" style="color:white;">
-                                                    <strong>Archivo adjunto</strong></label>
-                                               <input type="file" class="form-control" placeholder="Curriculum" 
-                                               name="Createresumen" id="{{form.id_Createresumen }}">{{user.Createresume.filename}}</input> -->
-
+                                                <input type="file" class="form-control"  name="Createresumen" id="{{user.id_Createresumen}}">
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
                                 <div class="row">
-
                                     <div class="col-lg-4">
                                         <div class="row form-group">
                                             <div class="col-md-12">
-                                                <button style="background-color: #074d93;"
-                                                    class="btn btn-primary btn-md text-white"
-                                                    type="submit">Guardar</button>
+                                                <button style="background-color: #074d93;"class="btn btn-primary btn-md text-white" type="submit">Guardar</button>
                                             </div>
                                         </div>
-
                                     </div>
-
                                 </div>
 
                             </div>
