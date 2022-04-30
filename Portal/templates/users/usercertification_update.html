@@ -1,18 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Usuario</title>
-</head>
-<body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Guardar</button>
+{% extends 'base.html' %}
+{% block ttile %}Edit Profile {% endblock %}
+{% load static %}
+{% block content %}
+<section class="contact d-flex align-items-center py-5" id="next-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 mb-5 mb-lg-0">
+                <center style="margin-top: 100px;">
+                    <h1 style="color:white;" class="lead">Actualizar Certificados</h1>
+                </center>
+                <div class="row">
+                    <form action="" method="POST" enctype="multipart/form-data" id="userprofile_form">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                {% csrf_token %}
+                                <div class="col-lg-4">
+                                    <div class="form-group py-2">
+                                        <label style="color:white;" class="required"
+                                            for="id_userprofile">Usuario:</label>
+                                        <select name="userprofile" required="" class="form-control" id="id_userprofile">
+                                            <option value="{{user.username}}" selected="">---------</option>
+                                            <option value="{{user.id}}">{{user.username}}</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-    </form>
+                                <div class="col-lg-4">
+                                    <div class="form-group py-2">
+                                        <label  style="color:white;" class="required" for="id_certification">Certificaciones:</label>
+                                        <select name="certification" required="" class="form-control" id="id_certification">
+                                            <option value="id_certification" selected="{{form.certification}}</option>                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="form-group py-2">
+                                      <label style="color:white;" class="required" for="id_name">Certificado:</label>
+                                      <input type="text" name="name" maxlength="64" 
+                                          class="form-control" required="" id="id_name" placeholder="{{form.name}}">
+                                  </div>
+                              </div>
+                              <div class="form-row d-flex justify-content-between mt-4 mb-2">
+                                <div class="form-group">
+                                    <div class="form-check ml-2">
+                                        <input class="form-check-input" type="checkbox" name="in_progress" id="id_in_progress">
+                                        <label style="color:white;" class="form-check-label" for="id_in_progress">En Progreso:</label>
+                                    </div>
+                                </div>
+                              </div>
 
-</body>
-</html>
+
+                              
+                            </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <button style="background-color: #074d93;" class="btn btn-primary btn-md text-white"
+                                    type="submit">Guardar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        </form>
+
+    </div>
+
+    </div>
+
+    </div>
+
+    </div>
+</section>
+{% endblock %}
+

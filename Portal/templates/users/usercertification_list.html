@@ -1,37 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
-</head>
-<body>
-    <h1>Hola desde el  listado de Usuarios</h1>
-    {% if object_list %}
-        <table border="2">
-            <thead>
-                <th>certification</th>
-                <th>Nombre certificado</th>
-                <th>Fecha Finalizacion</th>
-            </thead>
-            <tbody>
-                {% for lst in object_list %}
-                <tr>
-                    <td>{{lst.certification}}</td>
-                    <td>{{lst.name}}</td>
-                    <td>{{lst.end_date}}</td>
-                   
-                    <a href="{% url 'users-usercertification-update' lst.id %}">Editar</a>
-                    <a href="{% url 'users-usercertification-logic-delete' lst.id %}">Eliminar</a>
-                </tr>
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-    {% else %} 
-    <h1>No existen datos registrados</h1>
-    {% endif %}
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block ttile %}Edit Profile {% endblock %}
+{% load static %}
+{% block content %}
+<body style="background-color:#212d37;">
+    <section class="home-section section-hero inner-page overlay bg-image"style="background-image:url('{% static 'images/hero_1.png' %}')"id="home-section">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-12">
+                    <div class="mb-5 text-center">
+                        <h1 class="text-white font-weight-bold">Certificaciones</h1>
+                        <p>Lista de Certificaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="site-section">
+        <div class="container">
+            <div class="mb-12">
+                <div class="row align-items-start ">
+                    <div class="row">
+                        <div class="col-lg-12">                         
+                            <div class="card">                               
+                                <div class="card-body">                                    
+                                    <div class="table-responsive">                                        
+                                        <div class="col-md-12">                                            
+                                            {% if object_list %}                                     
+                                            <table class="table header-border table-responsive-sm">                                                
+                                                <thead>
+                                                    <tr>
+                                                        <th>Certificación</th>
+                                                        <th>Titulo</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha de Finalizacion</th>
+                                                                                                                                                                  
+                                                    </tr>
+                                                </thead>                                              
+                                                {% for lst in object_list %}
+                                                <tbody style="color:black;">
+                                                    <tr>
+                                                        <td>{{lst.certification}}</td>
+                                                        <td>{{lst.name}}</td>
+                                                        <td>{{lst.start_date}}</td>
+                                                        <td>{{lst.end_date}}</td>>
+                                                        <td>
+                                                            <a href="{% url 'users-usercertification-update' lst.id %}"style="color:#074d93;">Editar</a></td>
+                                                            <td><a href="{% url 'users-usercertification-logic-delete' lst.id %}" style="color:#074d93;" >Eliminar</a></td>                                                      
+                                                    </tr>
+                                                </tbody>
+                                                {% endfor %}
+                                            </table>
+                                            {% else %}
+                                            <h1>No existen datos registrados</h1>
+                                            <div class="mb-5 text-right">
+                                                <a href="{% url 'users-usercertification-create'  %}"
+                                                   class="btn btn-primary border-width-2 d-none d-lg-inline-block"style="background-color:#074d93;">Crear</a>
+                                            </div>
+                                            {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+    </section>
 </body>
-</html>
+{% endblock %}
+
+
+
